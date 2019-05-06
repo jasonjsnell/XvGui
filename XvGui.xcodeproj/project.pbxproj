@@ -10,6 +10,7 @@
 		BB56347221B594B400C98592 /* Anim.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56346F21B594B400C98592 /* Anim.swift */; };
 		BB56347321B594B400C98592 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56347021B594B400C98592 /* Text.swift */; };
 		BB56347421B594B400C98592 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56347121B594B400C98592 /* Screen.swift */; };
+		BB6CF958221450FD00377FE8 /* Textures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6CF957221450FD00377FE8 /* Textures.swift */; };
 		BBAC50C821C463CC00AD7837 /* Interactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAC50C721C463CC00AD7837 /* Interactions.swift */; };
 		BBC2598221B5705900A8517E /* XvUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBC2597F21B5702B00A8517E /* XvUtils.framework */; };
 		BBC78EF821B5986B00749648 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC78EF721B5986B00749648 /* Shapes.swift */; };
@@ -33,6 +34,7 @@
 		BB56347521B594D400C98592 /* XvGui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XvGui.h; path = Private/Basics/XvGui.h; sourceTree = SOURCE_ROOT; };
 		BB56347621B594D400C98592 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Private/Basics/Info.plist; sourceTree = SOURCE_ROOT; };
 		BB6291D921B56A2E00AAD524 /* XvGui.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XvGui.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB6CF957221450FD00377FE8 /* Textures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Textures.swift; path = Public/Textures.swift; sourceTree = "<group>"; };
 		BBAC50C721C463CC00AD7837 /* Interactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Interactions.swift; path = Public/Interactions.swift; sourceTree = "<group>"; };
 		BBC2597A21B5702B00A8517E /* XvUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XvUtils.xcodeproj; path = ../XvUtils/XvUtils.xcodeproj; sourceTree = "<group>"; };
 		BBC78EF721B5986B00749648 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Shapes.swift; path = Public/Shapes.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				BBC78EF721B5986B00749648 /* Shapes.swift */,
 				BB56347121B594B400C98592 /* Screen.swift */,
 				BB56347021B594B400C98592 /* Text.swift */,
+				BB6CF957221450FD00377FE8 /* Textures.swift */,
 				BBC78F1921B59F3D00749648 /* Widgets.swift */,
 				BB56346D21B5947200C98592 /* Private */,
 				BB6291DA21B56A2E00AAD524 /* Products */,
@@ -201,6 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB6CF958221450FD00377FE8 /* Textures.swift in Sources */,
 				BB56347321B594B400C98592 /* Text.swift in Sources */,
 				BB56347221B594B400C98592 /* Anim.swift in Sources */,
 				BB56347421B594B400C98592 /* Screen.swift in Sources */,
