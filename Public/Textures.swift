@@ -18,7 +18,13 @@ public class Textures{
         lineHeight:CGFloat,
         spaceHeight:CGFloat) -> UIView {
         
-        return createScanLines(x: 0.0, y: 0.0, width: Screen.width, height: Screen.height, color: .black, lineHeight: lineHeight, spaceHeight: spaceHeight)
+        return createScanLines(x: 0.0,
+                               y: 0.0,
+                               width: Screen.width,
+                               height: Screen.height,
+                               color: .black,
+                               lineHeight: lineHeight,
+                               spaceHeight: spaceHeight)
     }
     
     public class func createScanLines(
