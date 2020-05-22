@@ -10,7 +10,7 @@ import UIKit
 import XvUtils
 import QuartzCore
 
-public class Widgets{
+public class MeterBar{
     
     //const
     public static let BAR_ANCHOR_TOP:String = "barAnchorTop"

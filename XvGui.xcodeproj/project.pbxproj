@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB1FD9A1243CBC340091A4DE /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1FD9A0243CBC340091A4DE /* Color.swift */; };
 		BB56347221B594B400C98592 /* Anim.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56346F21B594B400C98592 /* Anim.swift */; };
 		BB56347321B594B400C98592 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56347021B594B400C98592 /* Text.swift */; };
 		BB56347421B594B400C98592 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56347121B594B400C98592 /* Screen.swift */; };
+		BB5AC6A8231729080022DAD5 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5AC6A7231729080022DAD5 /* Grid.swift */; };
 		BB6CF958221450FD00377FE8 /* Textures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6CF957221450FD00377FE8 /* Textures.swift */; };
 		BBAC50C821C463CC00AD7837 /* Interactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAC50C721C463CC00AD7837 /* Interactions.swift */; };
 		BBC2598221B5705900A8517E /* XvUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBC2597F21B5702B00A8517E /* XvUtils.framework */; };
 		BBC78EF821B5986B00749648 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC78EF721B5986B00749648 /* Shapes.swift */; };
-		BBC78F1A21B59F3D00749648 /* Widgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC78F1921B59F3D00749648 /* Widgets.swift */; };
+		BBC78F1A21B59F3D00749648 /* MeterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC78F1921B59F3D00749648 /* MeterBar.swift */; };
+		BBE3C44D22B119D7002D0E8B /* Lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE3C44C22B119D7002D0E8B /* Lines.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,17 +31,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB1FD9A0243CBC340091A4DE /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Color.swift; path = Public/Color.swift; sourceTree = "<group>"; };
 		BB56346F21B594B400C98592 /* Anim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Anim.swift; path = Public/Anim.swift; sourceTree = "<group>"; };
 		BB56347021B594B400C98592 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Text.swift; path = Public/Text.swift; sourceTree = "<group>"; };
 		BB56347121B594B400C98592 /* Screen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Screen.swift; path = Public/Screen.swift; sourceTree = "<group>"; };
 		BB56347521B594D400C98592 /* XvGui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XvGui.h; path = Private/Basics/XvGui.h; sourceTree = SOURCE_ROOT; };
 		BB56347621B594D400C98592 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Private/Basics/Info.plist; sourceTree = SOURCE_ROOT; };
+		BB5AC6A7231729080022DAD5 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Grid.swift; path = Public/Grid.swift; sourceTree = "<group>"; };
 		BB6291D921B56A2E00AAD524 /* XvGui.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XvGui.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB6CF957221450FD00377FE8 /* Textures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Textures.swift; path = Public/Textures.swift; sourceTree = "<group>"; };
 		BBAC50C721C463CC00AD7837 /* Interactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Interactions.swift; path = Public/Interactions.swift; sourceTree = "<group>"; };
 		BBC2597A21B5702B00A8517E /* XvUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XvUtils.xcodeproj; path = ../XvUtils/XvUtils.xcodeproj; sourceTree = "<group>"; };
 		BBC78EF721B5986B00749648 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Shapes.swift; path = Public/Shapes.swift; sourceTree = "<group>"; };
-		BBC78F1921B59F3D00749648 /* Widgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Widgets.swift; path = Public/Widgets.swift; sourceTree = "<group>"; };
+		BBC78F1921B59F3D00749648 /* MeterBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MeterBar.swift; path = Public/MeterBar.swift; sourceTree = "<group>"; };
+		BBE3C44C22B119D7002D0E8B /* Lines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Lines.swift; path = Public/Lines.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,11 +73,14 @@
 				BBC2597A21B5702B00A8517E /* XvUtils.xcodeproj */,
 				BB56346F21B594B400C98592 /* Anim.swift */,
 				BBAC50C721C463CC00AD7837 /* Interactions.swift */,
+				BB1FD9A0243CBC340091A4DE /* Color.swift */,
+				BB5AC6A7231729080022DAD5 /* Grid.swift */,
+				BBE3C44C22B119D7002D0E8B /* Lines.swift */,
+				BBC78F1921B59F3D00749648 /* MeterBar.swift */,
 				BBC78EF721B5986B00749648 /* Shapes.swift */,
 				BB56347121B594B400C98592 /* Screen.swift */,
 				BB56347021B594B400C98592 /* Text.swift */,
 				BB6CF957221450FD00377FE8 /* Textures.swift */,
-				BBC78F1921B59F3D00749648 /* Widgets.swift */,
 				BB56346D21B5947200C98592 /* Private */,
 				BB6291DA21B56A2E00AAD524 /* Products */,
 				BBC2596921B56CC200A8517E /* Frameworks */,
@@ -147,12 +156,12 @@
 		BB6291D021B56A2E00AAD524 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Jason Snell";
 				TargetAttributes = {
 					BB6291D821B56A2E00AAD524 = {
 						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -162,6 +171,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = BB6291CF21B56A2E00AAD524;
 			productRefGroup = BB6291DA21B56A2E00AAD524 /* Products */;
@@ -205,12 +215,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB6CF958221450FD00377FE8 /* Textures.swift in Sources */,
+				BB1FD9A1243CBC340091A4DE /* Color.swift in Sources */,
+				BBE3C44D22B119D7002D0E8B /* Lines.swift in Sources */,
 				BB56347321B594B400C98592 /* Text.swift in Sources */,
 				BB56347221B594B400C98592 /* Anim.swift in Sources */,
 				BB56347421B594B400C98592 /* Screen.swift in Sources */,
-				BBC78F1A21B59F3D00749648 /* Widgets.swift in Sources */,
+				BBC78F1A21B59F3D00749648 /* MeterBar.swift in Sources */,
 				BBAC50C821C463CC00AD7837 /* Interactions.swift in Sources */,
 				BBC78EF821B5986B00749648 /* Shapes.swift in Sources */,
+				BB5AC6A8231729080022DAD5 /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +265,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -276,6 +289,8 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -330,10 +345,13 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -362,8 +380,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
 			};
 			name = Debug;
 		};
@@ -389,8 +408,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonjsnell.XvGui;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
 			};
 			name = Release;
 		};

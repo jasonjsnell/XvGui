@@ -54,6 +54,16 @@ public class Screen  {
         }
     }
     
+    //view port height
+    public func v(h:CGFloat) -> CGFloat {
+        return Screen.height * (h / 100)
+    }
+    
+    //view port width
+    public func v(w:CGFloat) -> CGFloat {
+        return Screen.width * (w / 100)
+    }
+    
     public static var center:CGPoint {
         
         get {
@@ -74,6 +84,8 @@ public class Screen  {
             return (max / 2) - (height / 2)
         }
     }
+    
+    
     
     //MARK:IMAGE SCALE
     public static var scale:CGFloat {

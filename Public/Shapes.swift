@@ -58,6 +58,52 @@ public class Shapes{
         return rect
     }
     
+    //MARK: GRADIENT
+    
+    //pass in an array of colors which will create the background gradient
+    //UIColor version
+    public class func createRect(
+        x:CGFloat,
+        y:CGFloat,
+        width:CGFloat,
+        height:CGFloat,
+        bgGradient:[UIColor],
+        rotate:Bool) -> UIView {
+        
+        let rect:UIView = createRect(x: x, y: y, width: width, height: height)
+        let gradient = CAGradientLayer()
+
+        var cgColors:[CGColor] = []
+        for bgColor in bgGradient {
+            cgColors.append(bgColor.cgColor)
+        }
+        gradient.colors = cgColors
+        if (rotate) { gradient.setAffineTransform(CGAffineTransform(rotationAngle: CGFloat.pi / 2)) }
+        gradient.frame = rect.bounds
+        rect.layer.insertSublayer(gradient, at: 0)
+        return rect
+    }
+    
+    //CGColor version
+    public class func createRect(
+        x:CGFloat,
+        y:CGFloat,
+        width:CGFloat,
+        height:CGFloat,
+        bgGradient:[CGColor],
+        rotate:Bool) -> UIView {
+        
+        let rect:UIView = createRect(x: x, y: y, width: width, height: height)
+        let gradient = CAGradientLayer()
+
+        gradient.colors = bgGradient
+        if (rotate) { gradient.setAffineTransform(CGAffineTransform(rotationAngle: CGFloat.pi / 2)) }
+        gradient.frame = rect.bounds
+        rect.layer.insertSublayer(gradient, at: 0)
+        return rect
+    }
+    
+    
     //MARK: CIRCLE
     
     public static func createCircle(
@@ -99,6 +145,13 @@ public class Shapes{
     
     
     //MARK: attributes
+    public static func set(x:CGFloat, y:CGFloat, width:CGFloat, height:CGFloat, ofView:UIView){
+        set(x:x, ofView: ofView)
+        set(y:y, ofView: ofView)
+        set(width: width, ofView: ofView)
+        set(height: height, ofView: ofView)
+    }
+    
     public static func set(width:CGFloat, height:CGFloat, ofView:UIView){
         set(width: width, ofView: ofView)
         set(height: height, ofView: ofView)
@@ -123,5 +176,18 @@ public class Shapes{
     
     public static func set(y:CGFloat, ofView:UIView){
         ofView.frame.origin.y = y
+    }
+    
+    //have CA layer and it's sublayers resize to match the bounds of the main UIView
+    public static func updateSublayersHeight(ofView:UIView){
+        
+        ofView.layer.frame.size.height = ofView.frame.size.height
+        
+        if let sublayers:[CALayer] = ofView.layer.sublayers {
+            
+            for sublayer in sublayers {
+                sublayer.frame.size.height = ofView.frame.size.height
+            }
+        }
     }
 }
