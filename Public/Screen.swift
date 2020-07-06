@@ -28,6 +28,12 @@ public class Screen  {
     
     public static var height:CGFloat {
         get {
+            #if targetEnvironment(macCatalyst)
+                //print("UIKit running on macOS")
+            #else
+                //print("Your regular code")
+            #endif
+            
             return UIScreen.main.bounds.height
         }
     }

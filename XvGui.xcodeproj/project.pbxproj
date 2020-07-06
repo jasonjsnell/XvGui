@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB1E248824AD40A200DEBD9E /* XvUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1E248724AD409C00DEBD9E /* XvUtils.framework */; };
 		BB1FD9A1243CBC340091A4DE /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1FD9A0243CBC340091A4DE /* Color.swift */; };
 		BB56347221B594B400C98592 /* Anim.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56346F21B594B400C98592 /* Anim.swift */; };
 		BB56347321B594B400C98592 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56347021B594B400C98592 /* Text.swift */; };
@@ -14,16 +15,15 @@
 		BB5AC6A8231729080022DAD5 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5AC6A7231729080022DAD5 /* Grid.swift */; };
 		BB6CF958221450FD00377FE8 /* Textures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6CF957221450FD00377FE8 /* Textures.swift */; };
 		BBAC50C821C463CC00AD7837 /* Interactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAC50C721C463CC00AD7837 /* Interactions.swift */; };
-		BBC2598221B5705900A8517E /* XvUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBC2597F21B5702B00A8517E /* XvUtils.framework */; };
 		BBC78EF821B5986B00749648 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC78EF721B5986B00749648 /* Shapes.swift */; };
 		BBC78F1A21B59F3D00749648 /* MeterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC78F1921B59F3D00749648 /* MeterBar.swift */; };
 		BBE3C44D22B119D7002D0E8B /* Lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE3C44C22B119D7002D0E8B /* Lines.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BBC2597E21B5702B00A8517E /* PBXContainerItemProxy */ = {
+		BB1E248624AD409C00DEBD9E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BBC2597A21B5702B00A8517E /* XvUtils.xcodeproj */;
+			containerPortal = BB1E248224AD409C00DEBD9E /* XvUtils.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 96F3779D1E70E7C7000522BD;
 			remoteInfo = XvUtils;
@@ -31,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB1E248224AD409C00DEBD9E /* XvUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XvUtils.xcodeproj; path = ../XvUtils/XvUtils.xcodeproj; sourceTree = "<group>"; };
 		BB1FD9A0243CBC340091A4DE /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Color.swift; path = Public/Color.swift; sourceTree = "<group>"; };
 		BB56346F21B594B400C98592 /* Anim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Anim.swift; path = Public/Anim.swift; sourceTree = "<group>"; };
 		BB56347021B594B400C98592 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Text.swift; path = Public/Text.swift; sourceTree = "<group>"; };
@@ -41,7 +42,6 @@
 		BB6291D921B56A2E00AAD524 /* XvGui.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XvGui.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB6CF957221450FD00377FE8 /* Textures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Textures.swift; path = Public/Textures.swift; sourceTree = "<group>"; };
 		BBAC50C721C463CC00AD7837 /* Interactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Interactions.swift; path = Public/Interactions.swift; sourceTree = "<group>"; };
-		BBC2597A21B5702B00A8517E /* XvUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XvUtils.xcodeproj; path = ../XvUtils/XvUtils.xcodeproj; sourceTree = "<group>"; };
 		BBC78EF721B5986B00749648 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Shapes.swift; path = Public/Shapes.swift; sourceTree = "<group>"; };
 		BBC78F1921B59F3D00749648 /* MeterBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MeterBar.swift; path = Public/MeterBar.swift; sourceTree = "<group>"; };
 		BBE3C44C22B119D7002D0E8B /* Lines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Lines.swift; path = Public/Lines.swift; sourceTree = "<group>"; };
@@ -52,13 +52,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBC2598221B5705900A8517E /* XvUtils.framework in Frameworks */,
+				BB1E248824AD40A200DEBD9E /* XvUtils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB1E248324AD409C00DEBD9E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BB1E248724AD409C00DEBD9E /* XvUtils.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		BB56346D21B5947200C98592 /* Private */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,7 +78,7 @@
 		BB6291CF21B56A2E00AAD524 = {
 			isa = PBXGroup;
 			children = (
-				BBC2597A21B5702B00A8517E /* XvUtils.xcodeproj */,
+				BB1E248224AD409C00DEBD9E /* XvUtils.xcodeproj */,
 				BB56346F21B594B400C98592 /* Anim.swift */,
 				BBAC50C721C463CC00AD7837 /* Interactions.swift */,
 				BB1FD9A0243CBC340091A4DE /* Color.swift */,
@@ -109,14 +117,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BBC2597B21B5702B00A8517E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BBC2597F21B5702B00A8517E /* XvUtils.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,8 +178,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = BBC2597B21B5702B00A8517E /* Products */;
-					ProjectRef = BBC2597A21B5702B00A8517E /* XvUtils.xcodeproj */;
+					ProductGroup = BB1E248324AD409C00DEBD9E /* Products */;
+					ProjectRef = BB1E248224AD409C00DEBD9E /* XvUtils.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -190,11 +190,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		BBC2597F21B5702B00A8517E /* XvUtils.framework */ = {
+		BB1E248724AD409C00DEBD9E /* XvUtils.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = XvUtils.framework;
-			remoteRef = BBC2597E21B5702B00A8517E /* PBXContainerItemProxy */;
+			remoteRef = BB1E248624AD409C00DEBD9E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -370,7 +370,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -379,6 +379,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonjsnell.XvGui;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -399,7 +400,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -408,6 +409,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonjsnell.XvGui;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "$(ARCHS_STANDARD)";
