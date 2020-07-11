@@ -22,19 +22,39 @@ public class Screen  {
     //MARK: DIMENSIONS
     public static var width:CGFloat {
         get {
+            #if targetEnvironment(macCatalyst)
+            
+            if let firstWindow = UIApplication.shared.windows.first {
+                if let rootViewControoler:UIViewController = firstWindow.rootViewController {
+                    return rootViewControoler.view.frame.size.width
+                }
+            }
+            
+            print("Screen: Error: Unable to find rootViewController width")
+            return 0
+            
+            #else
             return UIScreen.main.bounds.width
+            #endif
         }
     }
     
     public static var height:CGFloat {
         get {
             #if targetEnvironment(macCatalyst)
-                //print("UIKit running on macOS")
-            #else
-                //print("Your regular code")
-            #endif
             
+            if let firstWindow = UIApplication.shared.windows.first {
+                if let rootViewControoler:UIViewController = firstWindow.rootViewController {
+                    return rootViewControoler.view.frame.size.height
+                }
+            }
+            
+            print("Screen: Error: Unable to find rootViewController height")
+            return 0
+            
+            #else
             return UIScreen.main.bounds.height
+            #endif
         }
     }
     
