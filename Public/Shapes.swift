@@ -179,13 +179,15 @@ public class Shapes{
     }
     
     //have CA layer and it's sublayers resize to match the bounds of the main UIView
-    public static func updateSublayersHeight(ofView:UIView){
+    public static func updateSublayersSize(ofView:UIView){
         
+        ofView.layer.frame.size.width = ofView.frame.size.width
         ofView.layer.frame.size.height = ofView.frame.size.height
         
         if let sublayers:[CALayer] = ofView.layer.sublayers {
             
             for sublayer in sublayers {
+                sublayer.frame.size.width = ofView.frame.size.width
                 sublayer.frame.size.height = ofView.frame.size.height
             }
         }
