@@ -215,7 +215,7 @@ public class Lines {
         //Number of Segments
         let count = points.count - 1
         
-        if (count == 0){
+        if (count <= 0){
             
             return nil
             

@@ -61,5 +61,39 @@ public class Color {
         
         return uiColor.cgColor
     }
+    
+    public class func getUIColor(fromRGBA:[CGFloat]) -> UIColor {
+        
+        let uiColor:UIColor = UIColor(
+            red: fromRGBA[0],
+            green: fromRGBA[1],
+            blue: fromRGBA[2],
+            alpha: fromRGBA[3]
+        )
+        
+        return uiColor
+    }
+    
+    public class func getUIColor(fromRGB:[CGFloat], alpha:CGFloat) -> UIColor {
+        
+        let uiColor:UIColor = UIColor(
+            red: fromRGB[0],
+            green: fromRGB[1],
+            blue: fromRGB[2],
+            alpha: alpha
+        )
+        
+        return uiColor
+    }
+    
+    public class func getCGColor(fromRGBA:[CGFloat]) -> CGColor {
+        
+        return getUIColor(fromRGBA: fromRGBA).cgColor
+    }
+    
+    public class func getCGColor(fromRGB:[CGFloat], alpha:CGFloat) -> CGColor {
+        
+        return getUIColor(fromRGB: fromRGB, alpha: alpha).cgColor
+    }
 
 }
