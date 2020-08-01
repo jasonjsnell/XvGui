@@ -11,7 +11,7 @@ import QuartzCore
 
 public class Shapes{
     
-    //MARK: RECT
+    //MARK: - RECT
     public class func createRect(
         x:CGFloat,
         y:CGFloat,
@@ -58,7 +58,7 @@ public class Shapes{
         return rect
     }
     
-    //MARK: GRADIENT
+    //MARK: - GRADIENT
     
     //pass in an array of colors which will create the background gradient
     //UIColor version
@@ -71,15 +71,15 @@ public class Shapes{
         rotate:Bool) -> UIView {
         
         let rect:UIView = createRect(x: x, y: y, width: width, height: height)
-        let gradient = CAGradientLayer()
-
-        var cgColors:[CGColor] = []
-        for bgColor in bgGradient {
-            cgColors.append(bgColor.cgColor)
-        }
+        
+        let gradient:CAGradientLayer = CAGradientLayer()
+        let cgColors:[CGColor] = bgGradient.map { $0.cgColor}
         gradient.colors = cgColors
+        
         if (rotate) { gradient.setAffineTransform(CGAffineTransform(rotationAngle: CGFloat.pi / 2)) }
+        
         gradient.frame = rect.bounds
+        
         rect.layer.insertSublayer(gradient, at: 0)
         return rect
     }
@@ -94,9 +94,10 @@ public class Shapes{
         rotate:Bool) -> UIView {
         
         let rect:UIView = createRect(x: x, y: y, width: width, height: height)
-        let gradient = CAGradientLayer()
-
+        
+        let gradient:CAGradientLayer = CAGradientLayer()
         gradient.colors = bgGradient
+        
         if (rotate) { gradient.setAffineTransform(CGAffineTransform(rotationAngle: CGFloat.pi / 2)) }
         gradient.frame = rect.bounds
         rect.layer.insertSublayer(gradient, at: 0)
@@ -104,7 +105,7 @@ public class Shapes{
     }
     
     
-    //MARK: CIRCLE
+    //MARK: - CIRCLE
     
     public static func createCircle(
         x:CGFloat,
@@ -132,6 +133,27 @@ public class Shapes{
         x:CGFloat,
         y:CGFloat,
         diameter:CGFloat,
+        bgGradient:[UIColor]) -> UIView {
+        
+        let circle:UIView = createCircle(x: x, y: y, diameter: diameter)
+        
+        let gradient:CAGradientLayer = CAGradientLayer()
+        gradient.type = .radial
+        let cgColors:[CGColor] = bgGradient.map { $0.cgColor }
+        gradient.colors = cgColors
+        gradient.startPoint = CGPoint(x: 0.5, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+        
+        circle.layer.insertSublayer(gradient, at: 0)
+        
+        return circle
+        
+    }
+    
+    public static func createCircle(
+        x:CGFloat,
+        y:CGFloat,
+        diameter:CGFloat,
         bgColor:UIColor,
         borderColor:UIColor,
         borderWidth:CGFloat) -> UIView {
@@ -144,7 +166,7 @@ public class Shapes{
     }
     
     
-    //MARK: attributes
+    //MARK: - SET
     public static func set(x:CGFloat, y:CGFloat, width:CGFloat, height:CGFloat, ofView:UIView){
         set(x:x, ofView: ofView)
         set(y:y, ofView: ofView)
@@ -178,6 +200,12 @@ public class Shapes{
         ofView.frame.origin.y = y
     }
     
+    public static func set(diameter:CGFloat, ofCircle:UIView) {
+        set(width: diameter, height: diameter, ofView: ofCircle)
+        ofCircle.layer.cornerRadius = diameter / 2
+    }
+    
+    //MARK: - REFRESH
     //have CA layer and it's sublayers resize to match the bounds of the main UIView
     public static func updateSublayersSize(ofView:UIView){
         
@@ -191,5 +219,23 @@ public class Shapes{
                 sublayer.frame.size.height = ofView.frame.size.height
             }
         }
+    }
+    
+    //MARK: - GET
+    
+    public static func getWidth(ofView:UIView) -> CGFloat {
+        return ofView.frame.size.width
+    }
+    
+    public static func getHeight(ofView:UIView) -> CGFloat {
+        return ofView.frame.size.height
+    }
+
+    public static func getX(ofView:UIView) -> CGFloat {
+        return ofView.frame.origin.x
+    }
+    
+    public static func getY(ofView:UIView) -> CGFloat {
+        return ofView.frame.origin.y
     }
 }

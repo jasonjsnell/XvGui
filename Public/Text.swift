@@ -9,9 +9,97 @@
 
 import UIKit
 
+public class XvLabel{
+    
+    fileprivate var _label:UILabel?
+    fileprivate var _text:String
+    fileprivate var _fontName:String
+    fileprivate var _color:UIColor
+    fileprivate var _size:CGFloat
+    fileprivate var _alignment:NSTextAlignment
+    fileprivate var _centered:Bool
+    
+    //init with standard values
+    public init(
+        text:String = "",
+        color:UIColor = .white,
+        fontName:String = Text.HELV_NEUE,
+        size:CGFloat = UIFont.systemFontSize,
+        alignment:NSTextAlignment = .left) {
+        
+        self._text = text
+        self._fontName = fontName
+        self._color = color
+        self._size = size
+        self._alignment = alignment
+        
+        //deduct centered (whether label aligns to a middle point when changing xy)
+        if (alignment == .center) {
+            _centered = true
+        } else {
+            _centered = false
+        }
+        
+        //try to create a label with incoming vars
+        if let _lbl:UILabel = Text.createLabel(text: text, fontName: fontName, color: color, size: size, alignment: alignment) {
+            
+            //if successful, save it
+            _label = _lbl
+            
+        } else {
+            print("XvLabel: Error: Unable to init label")
+        }
+        
+        
+    }
+    
+    public var text:String {
+        get { return _text }
+        set { Text.set(label: _label!, withText: newValue, centered: _centered) }
+    }
+    
+    public var view:UILabel {
+        get { return _label! }
+    }
+    
+    public var x:CGFloat {
+        get { return Text.getX(of: _label!)}
+        set { Text.position(label: _label!, x: newValue, centered: _centered)}
+    }
+    
+    public var y:CGFloat {
+        get { return Text.getY(of: _label!)}
+        set { Text.position(label: _label!, y: newValue, centered: _centered)}
+    }
+    
+    public var xy:CGPoint {
+        get { return CGPoint(x: x, y: y) }
+        set { Text.position(label: _label!, x: newValue.x, y: newValue.y, centered: _centered)}
+    }
+    
+    public var alpha:CGFloat {
+        get { return _label!.alpha }
+        set {
+            var newAlpha:CGFloat = newValue
+            if (newAlpha > 1.0) { newAlpha = 1.0 } else if (newAlpha < 0.0) { newAlpha = 0.0 }
+            _label!.alpha = newAlpha
+        }
+    }
+    
+    public var centered:Bool {
+        get { return _centered }
+        set { _centered = newValue }
+    }
+    
+    
+}
+
+//MARK: - Static funcs to change a UILabel
+
 public class Text{
     
     //MARK: Library of fonts used in apps
+    public static let HELV_NEUE:String = "HelveticaNeue"
     public static let HELV_NEUE_CON_BOLD:String = "HelveticaNeue-CondensedBold"
     public static let HELV_REGULAR:String = "Helvetica"
     public static let HELV_BOLD:String = "Helvetica-Bold"
@@ -87,6 +175,27 @@ public class Text{
     }
     
     //MARK: POSITION
+    
+    public static func getX(of label:UILabel) -> CGFloat {
+        return label.frame.origin.x
+    }
+    
+    public static func getY(of label:UILabel) -> CGFloat {
+        return label.frame.origin.y
+    }
+    
+    public static func position(label:UILabel, x:CGFloat, centered:Bool) {
+        
+        let y:CGFloat = getY(of: label)
+        position(label: label, x: x, y: y, centered: centered)
+    }
+    
+    public static func position(label:UILabel, y:CGFloat, centered:Bool) {
+        
+        let x:CGFloat = getX(of: label)
+        position(label: label, x: x, y: y, centered: centered)
+    }
+    
     public static func position(label:UILabel, x:CGFloat, y:CGFloat, centered:Bool){
         
         label.frame = CGRect(x: x, y: y, width: label.intrinsicContentSize.width, height: label.intrinsicContentSize.height)
@@ -99,11 +208,26 @@ public class Text{
     }
     
     //MARK: SET TEXT
-    public static func set(label:UILabel, withText:String){
+    public static func set(label:UILabel, withText:String, centered:Bool = false){
         
-        //let attrStr = NSMutableAttributedString(string: withText.uppercased())
-        //label.attributedText = attrStr
+        //get center point before the text update
+        let center:CGPoint = label.center
+        
+        //update the text
         label.text = withText
+        
+        //update the frame to reflect new text size
+        label.frame = CGRect(
+            x: getX(of: label),
+            y: getY(of: label),
+            width: label.intrinsicContentSize.width,
+            height: label.intrinsicContentSize.height
+        )
+        
+        //center the text using the original center point
+        if (centered){
+            label.center = center
+        }
         
     }
     
