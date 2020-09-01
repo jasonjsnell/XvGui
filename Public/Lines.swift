@@ -12,20 +12,35 @@ import UIKit
 public class XvLine {
     
     fileprivate var color:UIColor = UIColor.black
+    fileprivate var fill:UIColor?
+    fileprivate var closed:Bool = false
+    fileprivate var curved:Bool = false
     public let bezierPath:UIBezierPath = UIBezierPath()
     
     //MARK: Init
-    public init(lineWidth:CGFloat, color:UIColor, points:[CGPoint]){
+    public init(
+        lineWidth:CGFloat = 1.0,
+        color:UIColor = .black,
+        fill:UIColor? = nil,
+        points:[CGPoint] = [],
+        curved:Bool = false,
+        closed:Bool = false
+        
+    ){
         
         update(lineWidth: lineWidth)
         update(color: color)
-        update(points: points) //draw the line
+        if (fill != nil) { update(fill: fill!) }
+        update(points: points)
+        self.closed = closed
+        self.curved = curved
     }
     
     //MARK: Update property methods
     //use these inside or outside the UIView draw method
     public func update(lineWidth:CGFloat) { bezierPath.lineWidth = lineWidth }
     public func update(color:UIColor) { self.color = color }
+    public func update(fill:UIColor) { self.fill = fill }
     public func update(points:[CGPoint]) {
         
         if (points.count > 1) {
@@ -33,9 +48,30 @@ public class XvLine {
             bezierPath.removeAllPoints()//clear existing
             bezierPath.move(to: points[0]) //move to starting position
             
-            for i in 1..<points.count {
-                bezierPath.addLine(to: points[i]) //loop through the rest of the points to draw the line
+            if (curved) {
+                
+                //curved paths
+                //get control points
+                if let controlPointsArray:[[CGPoint]] = Lines.getControlPoints(from: points) {
+                    
+                    for i in 1..<points.count { //go through array
+                        
+                        let wavePoint:CGPoint = points[i] //grab the points
+                        let controlPoints:[CGPoint] = controlPointsArray[i-1] //and corresponding control points
+                        
+                        //curved path
+                        bezierPath.addCurve(to: wavePoint, controlPoint1: controlPoints[0], controlPoint2: controlPoints[1])
+                    }
+                }
+                
+            } else {
+                
+                //straight lines
+                for i in 1..<points.count {
+                    bezierPath.addLine(to: points[i]) //loop through the rest of the points to draw the line
+                }
             }
+            
         }
     }
     
@@ -47,83 +83,21 @@ public class XvLine {
         //most basic commands for a render
         color.setStroke() //set color
         bezierPath.stroke() //draw line
-    }
-    
-    
-}
-
-//MARK: - Closed Line
-//same as XvLine except a closed path
-public class XvClosedLine:XvLine {
-    
-    override public func draw() {
-        super.draw()
-        bezierPath.close() //connects the last point back to the first point
-    }
-}
-
-//MARK: - Filled Line
-public class XvFilledLine:XvClosedLine {
-    
-    fileprivate var fill:UIColor = UIColor.clear
-    
-    //MARK: Init
-    public init(lineWidth:CGFloat, color:UIColor, fill:UIColor, points:[CGPoint]){
         
-        self.fill = fill
-        super.init(lineWidth: lineWidth, color: color, points: points)
-    }
-    
-    //MARK: Update
-    public func update(fill:UIColor) { self.fill = fill }
-
-    //MARK: Draw
-    override public func draw() {
-        super.draw()
-        bezierPath.fill()
-    }
-}
-
-public class XvCurvedLine:XvLine {
-    
-    // same as the class above, but it uses control points to make smooth curves between each point
-    override public func update(points:[CGPoint]) {
-        
-        bezierPath.removeAllPoints() //clear existing
-        bezierPath.move(to: points[0]) //move to starting position
-        
-        //get control points
-        if let controlPointsArray:[[CGPoint]] = Lines.getControlPoints(from: points) {
+        //if fill has been supplied
+        if (fill != nil) {
             
-            for i in 1..<points.count { //go through array
-                
-                let wavePoint:CGPoint = points[i] //grab the points
-                let controlPoints:[CGPoint] = controlPointsArray[i-1] //and corresponding control points
-                
-                //curved path
-                bezierPath.addCurve(to: wavePoint, controlPoint1: controlPoints[0], controlPoint2: controlPoints[1])
-            }
+            //closed path, filled shape
+            fill!.setFill()
+            bezierPath.close()
+            bezierPath.fill()
+        
+        } else if (closed){
+            bezierPath.close() //closed path, no fill
         }
     }
 }
 
-//same as XvCurvedLine except a closed path
-public class XvClosedCurvedLine:XvCurvedLine {
-    
-    override public func draw() {
-        super.draw()
-        bezierPath.close() //connects the last point back to the first point
-    }
-}
-
-//same as XvCurvedLine except a closed path
-public class XvFilledCurvedLine:XvClosedCurvedLine {
-    
-    override public func draw() {
-        super.draw()
-        bezierPath.fill()
-    }
-}
 
 public class Lines {
     

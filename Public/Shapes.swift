@@ -9,6 +9,152 @@
 import UIKit
 import QuartzCore
 
+public class XvRect {
+    
+    fileprivate var _rect:UIView
+    fileprivate var _bgColor:UIColor
+    fileprivate var _borderColor:UIColor
+    fileprivate var _borderWidth:CGFloat
+    fileprivate var _cornerRadius:CGFloat
+    fileprivate let _gradient:CAGradientLayer = CAGradientLayer()
+    
+    public init(
+        x:CGFloat,
+        y:CGFloat,
+        width:CGFloat,
+        height:CGFloat,
+        bgColor:UIColor = .white,
+        borderColor:UIColor = .black,
+        borderWidth:CGFloat = 0.0,
+        cornerRadius:CGFloat = 0.0) {
+        
+        //create shape
+        _rect = UIView(frame: CGRect(x: x, y: y, width: width, height: height))
+        
+        //store vars
+        _bgColor = bgColor
+        _borderColor = borderColor
+        _borderWidth = borderWidth
+        _cornerRadius = cornerRadius
+        
+        //set properties
+        self.bgColor = bgColor
+        self.borderColor = borderColor
+        self.borderWidth = borderWidth
+        self.cornerRadius = cornerRadius
+    }
+    
+    //MARK: Frame
+    public var view:UIView {
+        get { return _rect }
+    }
+    
+    public var x:CGFloat {
+        get { return _rect.frame.origin.x }
+        set { _rect.frame.origin.x = newValue }
+    }
+    
+    public var y:CGFloat {
+        get { return _rect.frame.origin.y }
+        set { _rect.frame.origin.y = newValue }
+    }
+    
+    public var width:CGFloat {
+        get { return _rect.frame.size.width }
+        set { _rect.frame.size.width = newValue }
+    }
+    
+    public var height:CGFloat {
+        get { return _rect.frame.size.height }
+        set { _rect.frame.size.height = newValue }
+    }
+    
+    //MARK: Bg Color
+    public var bgColor:UIColor {
+        get { return _bgColor }
+        set {
+            _bgColor = newValue
+            _rect.backgroundColor = _bgColor
+        }
+    }
+    
+    //MARK: Border
+    public var borderColor:UIColor {
+        get { return _borderColor }
+        set {
+            _borderColor = newValue
+            _rect.layer.borderColor = _borderColor.cgColor
+        }
+    }
+    
+    public var borderWidth:CGFloat {
+        get { return _borderWidth }
+        set {
+            _borderWidth = newValue
+            _rect.layer.borderWidth = _borderWidth
+        }
+    }
+    
+    public var cornerRadius:CGFloat {
+        get { return _cornerRadius }
+        set {
+            _cornerRadius = newValue
+            _rect.layer.cornerRadius = _cornerRadius
+        }
+    }
+    
+    //MARK: Gradient
+    public func create(gradient:[UIColor], rotate:Bool = false) {
+        
+        //map uiColors to cgColors
+        let cgColors:[CGColor] = gradient.map { $0.cgColor}
+        create(gradient: cgColors, rotate: rotate)
+        
+    }
+    
+    public func create(gradient:[CGColor], rotate:Bool = false) {
+        
+        _gradient.colors = gradient
+        
+        //rotatation
+        if (rotate) {
+            _gradient.setAffineTransform(CGAffineTransform(rotationAngle: CGFloat.pi / 2))
+        }
+        
+        //fit to rect
+        _gradient.frame = _rect.bounds
+        
+        //insert
+        _rect.layer.insertSublayer(_gradient, at: 0)
+    }
+    
+    public var gradient:[CGColor]? {
+        get { return _gradient.colors as? [CGColor] }
+        set {
+            if let gradColors:[CGColor] = newValue {
+                _gradient.colors = gradColors
+            }
+            
+        }
+    }
+    
+    //call when changing size of XvRect and need gradients and sublayers to resize too
+    public func refreshSize(){
+        
+        _rect.layer.frame.size.width = _rect.frame.size.width
+        _rect.layer.frame.size.height = _rect.frame.size.height
+        
+        if let sublayers:[CALayer] = _rect.layer.sublayers {
+            
+            for sublayer in sublayers {
+                sublayer.frame.size.width = _rect.frame.size.width
+                sublayer.frame.size.height = _rect.frame.size.height
+            }
+        }
+    }
+    
+}
+
 public class Shapes{
     
     //MARK: - RECT
@@ -21,7 +167,7 @@ public class Shapes{
         return UIView(frame: CGRect(x: x, y: y, width: width, height: height))
     }
     
-    //used to get a default rect, often used for an inner rect of a bar that will later be automatically resizzed
+    //used to get a default rect, often used for an inner rect of a bar that will later be automatically resized
     public class func createRect(bgColor:UIColor) -> UIView {
         
         let rect:UIView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))

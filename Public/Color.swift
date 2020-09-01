@@ -96,4 +96,43 @@ public class Color {
         return getUIColor(fromRGB: fromRGB, alpha: alpha).cgColor
     }
 
+    
+    public class func getUIColor(fromHex:String) -> UIColor {
+        
+        //clean up incoming string
+        var hex:String = fromHex.trimmingCharacters(in: .whitespacesAndNewlines)
+        if hex.hasPrefix("#") {
+            hex = String(hex.dropFirst())
+        }
+        
+        //confirm length
+        if (hex.count != 6) {
+            print("Color: Error: Incoming hex is not 6-digit. Returning .clear")
+            return .clear
+        }
+        
+        //init rgb values
+        var rgb:UInt64 = 0
+        var r:CGFloat = 0.0
+        var g:CGFloat = 0.0
+        var b:CGFloat = 0.0
+        
+        //convert hex to rgb
+        guard Scanner(string: hex).scanHexInt64(&rgb) else {
+            print("Color: Error: Unable to convert hex to UIColor. Returning .clear")
+            return .clear
+        }
+        
+        r = CGFloat((rgb & 0xFF0000) >> 16) / 255.0
+        g = CGFloat((rgb & 0x00FF00) >> 8) / 255.0
+        b = CGFloat( rgb & 0x0000FF) / 255.0
+        
+        //return color
+        return UIColor(
+            red:   r,
+            green: g,
+            blue:  b,
+            alpha: 1.0
+        )
+    }
 }
