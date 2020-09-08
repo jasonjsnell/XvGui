@@ -12,7 +12,7 @@ import UIKit
 //MARK: - Input Text -
 public class XvInputText {
 
-    fileprivate let _textField:UITextField
+    fileprivate let _textField:UITextView
     
     public init(
         
@@ -23,7 +23,7 @@ public class XvInputText {
         height:CGFloat,
         
         //text properties
-        placeholder:String = "",
+        text:String = "",
         textColor:UIColor = .black,
         fontName:String = Text.HELV_NEUE,
         size:CGFloat = UIFont.systemFontSize,
@@ -35,11 +35,11 @@ public class XvInputText {
         cornerRadius:CGFloat = 8.0,
         
         //delegate
-        delegate:UITextFieldDelegate? = nil
+        delegate:UITextViewDelegate? = nil
         ){
         
         //init object
-        _textField = UITextField(frame: CGRect(
+        _textField = UITextView(frame: CGRect(
             x: x,
             y: y,
             width: width,
@@ -55,7 +55,7 @@ public class XvInputText {
         }
         
         //assign incoming vars
-        _textField.placeholder = placeholder
+        _textField.text = text
         _textField.textColor = textColor
         _textField.backgroundColor = backgroundColor
         _textField.layer.borderColor = borderColor.cgColor
@@ -66,13 +66,12 @@ public class XvInputText {
         _textField.delegate = delegate
         
         //defaults
+        _textField.tintColor = .black
         _textField.layer.masksToBounds = true;
-        _textField.borderStyle = UITextField.BorderStyle.roundedRect
         _textField.autocorrectionType = UITextAutocorrectionType.no
         _textField.keyboardType = UIKeyboardType.default
         _textField.returnKeyType = UIReturnKeyType.done
-        _textField.clearButtonMode = UITextField.ViewMode.whileEditing
-        //_textField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
+    
     }
     
     public var text:String? {
@@ -94,15 +93,38 @@ public class XvInputText {
         set { _textField.frame.origin.y = newValue }
     }
     
+    public var width:CGFloat {
+        get { return _textField.frame.size.width }
+        set {
+            _textField.frame = CGRect(
+                x: x,
+                y: y,
+                width: newValue,
+                height: height
+            )
+        }
+    }
+       
+    public var height:CGFloat {
+        get { return _textField.frame.size.height }
+        set {
+            _textField.frame = CGRect(
+                x: x,
+                y: y,
+                width: width,
+                height: newValue
+            )
+        }
+    }
+    
 }
 
-//MARK: - XvLabel -
-public class XvLabel{
+//MARK: - XvText -
+public class XvText{
     
-    fileprivate var _view:UIView = UIView()
+    fileprivate var _view:UIView
     
     fileprivate var _label:UILabel?
-    fileprivate var _text:String
     fileprivate var _fontName:String
     fileprivate var _color:UIColor
     fileprivate var _size:CGFloat
@@ -135,12 +157,13 @@ public class XvLabel{
         cornerRadius:CGFloat = 0,
         padding:CGFloat = 0) {
         
-        self._text = text
         self._fontName = fontName
         self._color = color
         self._size = size
         self._alignment = alignment
         self._padding = padding
+        
+        _view = UIView(frame: CGRect(x: x, y: y, width: 0, height: 0))
         
         //deduct centered (whether label aligns to a middle point when changing xy)
         if (alignment == .center) {
@@ -149,15 +172,22 @@ public class XvLabel{
             _centered = false
         }
         
-        //try to create a label with incoming vars
+        //turn "" into a space so the height is full
+        var _text:String = text
         if (_text == "") { _text = " " }
+        
+        //try to create a label with incoming vars
         if let _lbl:UILabel = Text.createLabel(text: _text, fontName: fontName, color: color, size: size, alignment: alignment) {
             
             //if successful, save it
             _label = _lbl
             
-            Text.position(label: _label!, x: x + _padding, centered: _centered)
-            Text.position(label: _label!, y: y + _padding, centered: _centered)
+            _label!.frame = CGRect(
+                x: _padding,
+                y: _padding,
+                width: _label!.intrinsicContentSize.width,
+                height: _label!.intrinsicContentSize.height
+            )
             
             //then construct background
             var _backgroundColor:UIColor = .clear
@@ -176,16 +206,21 @@ public class XvLabel{
                 var w:CGFloat
                 
                 if (backgroundWidth != nil) {
+                    
+                    //set by incoming value
                     w = backgroundWidth!
                 } else {
+                    
+                    //or created dynamically to be text width + padding
                     w = Text.getWidth(of: _label!) + (_padding * 2)
                 }
-
+                
+                //bg height = text height + padding
                 let h:CGFloat = Text.getHeight(of: _label!) + (_padding * 2)
                 
                 _background = XvRect(
-                    x: x,
-                    y: y,
+                    x: 0,
+                    y: 0,
                     width: w,
                     height: h,
                     bgColor: _backgroundColor,
@@ -194,21 +229,35 @@ public class XvLabel{
                     cornerRadius: cornerRadius
                 )
                 
+                //resize main view to fit bg
+                _view.frame = CGRect(x: x, y: y, width: w, height: h)
                 _view.addSubview(_background!.view)
+                
+            } else {
+                
+                //else no background, size view to fit text
+                _view.frame = CGRect(x: x, y: y, width: _label!.frame.width, height: _label!.frame.height)
+                
             }
             
             //add text on top of background
             _view.addSubview(_label!)
+           
+            //refresh size now that every is added
+            refreshSize()
             
         } else {
-            print("XvLabel: Error: Unable to init label")
+            print("XvText: Error: Unable to init label")
         }
         
     }
     
-    public var text:String {
-        get { return _text }
-        set { Text.set(label: _label!, withText: newValue, centered: _centered) }
+    public var text:String? {
+        get { return _label!.text }
+        set {
+            _label?.text = newValue
+            refreshSize()
+        }
     }
     
     public var view:UIView {
@@ -216,33 +265,18 @@ public class XvLabel{
     }
     
     public var x:CGFloat {
-        get { return _label!.frame.origin.x }
-        set {
-            Text.position(label: _label!, x: newValue + _padding, centered: _centered)
-            _background?.x = newValue
-        }
+        get { return _view.frame.origin.x }
+        set { _view.frame.origin.x = newValue }
     }
     
     public var y:CGFloat {
-        get { return _label!.frame.origin.y }
-        set {
-            Text.position(label: _label!, y: newValue + _padding, centered: _centered)
-            _background?.y = newValue
-        }
+        get { return _view.frame.origin.y }
+        set { _view.frame.origin.y = newValue }
     }
     
     public var xy:CGPoint {
-        get { return CGPoint(x: x, y: y) }
-        set {
-            Text.position(
-                label: _label!,
-                x: newValue.x + _padding,
-                y: newValue.y + _padding,
-                centered: _centered
-            )
-            _background?.x = newValue.x
-            _background?.y = newValue.y
-        }
+        get { return _view.frame.origin }
+        set { _view.frame.origin = newValue }
     }
     
     public var alpha:CGFloat {
@@ -250,33 +284,29 @@ public class XvLabel{
         set {
             var newAlpha:CGFloat = newValue
             if (newAlpha > 1.0) { newAlpha = 1.0 } else if (newAlpha < 0.0) { newAlpha = 0.0 }
-            _label!.alpha = newAlpha
-            _background?.view.alpha = newValue
+            _view.alpha = newAlpha
         }
     }
     
     public var centered:Bool {
         get { return _centered }
-        set { _centered = newValue }
     }
     
     public var width:CGFloat {
-        get {
-            if (_background != nil) {
-                return backgroundWidth
-            } else {
-                return textWidth
-            }
+        get { return _view.frame.width }
+        set {
+            _view.frame = CGRect(x: x, y: y, width: newValue, height: height)
+            if (_background != nil) { _background!.width = newValue }
+            refreshSize()
         }
     }
     
     public var height:CGFloat {
-        get {
-            if (_background != nil) {
-                return backgroundHeight
-            } else {
-                return textHeight
-            }
+        get { return _view.frame.height }
+        set {
+            _view.frame = CGRect(x: x, y: y, width: width, height: newValue)
+            if (_background != nil) { _background!.height = newValue }
+            refreshSize()
         }
     }
     
@@ -296,7 +326,10 @@ public class XvLabel{
                 return 0
             }
         }
-        set { _background?.width = newValue}
+        set {
+            _background?.width = newValue //change the background width
+            width = newValue //change the main view width (which also fires resize code
+        }
     }
     
     public var backgroundHeight:CGFloat {
@@ -307,7 +340,46 @@ public class XvLabel{
                 return 0
             }
         }
-        set { _background?.height = newValue}
+        set {
+            _background?.height = newValue //change the background height
+            height = newValue //change the main view height (which also fires resize code
+        }
+    }
+    
+    //MARK: Resizing
+    fileprivate func refreshSize(){
+        
+        //make sure label layout is correct after view has been resized
+        
+        //fit label view to text content
+        _label!.frame = CGRect(
+            x: _padding,
+            y: _padding,
+            width: _label!.intrinsicContentSize.width,
+            height: _label!.intrinsicContentSize.height
+        )
+        
+        //center the text if centering is true
+        //centering is handled differently based on whether the text is on a background (center it on the bg) or whether text has no background (center it on the determined xy point
+        
+        if (_background != nil && _centered) {
+          
+            //background and centered text
+            //shift the x point so the text field sits in the center of the background graphic
+            _label!.frame = CGRect(
+                x: (backgroundWidth/2) - (textWidth/2),
+                y: _padding,
+                width: _label!.intrinsicContentSize.width,
+                height: _label!.intrinsicContentSize.height
+            )
+            
+        } else if (_background == nil && _centered) {
+                
+            //no background, text centered around it's XY point
+            _label!.center = CGPoint(x: x, y: y)
+        
+        }
+
     }
     
     
@@ -319,7 +391,7 @@ public class XvLabel{
 
 public class Text{
     
-    //MARK: Library of fonts used in apps
+    //Library of fonts used in apps
     public static let HELV_NEUE:String = "HelveticaNeue"
     public static let HELV_NEUE_CON_BOLD:String = "HelveticaNeue-CondensedBold"
     public static let HELV_REGULAR:String = "Helvetica"
