@@ -7,17 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB0161382515981E0044483C /* XvInputText.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0161372515981E0044483C /* XvInputText.swift */; };
+		BB01613A251598430044483C /* XvText.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016139251598430044483C /* XvText.swift */; };
+		BB01613D2515988A0044483C /* Lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01613B2515988A0044483C /* Lines.swift */; };
+		BB01613E2515988A0044483C /* XvLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01613C2515988A0044483C /* XvLine.swift */; };
+		BB016140251598A70044483C /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01613F251598A70044483C /* Text.swift */; };
+		BB016146251598B20044483C /* XvShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016141251598B10044483C /* XvShape.swift */; };
+		BB016147251598B20044483C /* XvRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016142251598B10044483C /* XvRect.swift */; };
+		BB016148251598B20044483C /* XvImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016143251598B10044483C /* XvImage.swift */; };
+		BB016149251598B20044483C /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016144251598B10044483C /* Shapes.swift */; };
+		BB01614A251598B20044483C /* XvCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016145251598B20044483C /* XvCircle.swift */; };
+		BB01614E2515992A0044483C /* MeterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01614D2515992A0044483C /* MeterBar.swift */; };
+		BB016151251599540044483C /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01614F251599540044483C /* Grid.swift */; };
+		BB016152251599540044483C /* Textures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016150251599540044483C /* Textures.swift */; };
+		BB016154251599850044483C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016153251599850044483C /* Color.swift */; };
+		BB016158251599B90044483C /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016157251599B90044483C /* Screen.swift */; };
+		BB01615A251599C60044483C /* Interactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016159251599C60044483C /* Interactions.swift */; };
+		BB01615C251599CF0044483C /* Anim.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01615B251599CF0044483C /* Anim.swift */; };
 		BB1E248824AD40A200DEBD9E /* XvUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1E248724AD409C00DEBD9E /* XvUtils.framework */; };
-		BB1FD9A1243CBC340091A4DE /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1FD9A0243CBC340091A4DE /* Color.swift */; };
-		BB56347221B594B400C98592 /* Anim.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56346F21B594B400C98592 /* Anim.swift */; };
-		BB56347321B594B400C98592 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56347021B594B400C98592 /* Text.swift */; };
-		BB56347421B594B400C98592 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB56347121B594B400C98592 /* Screen.swift */; };
-		BB5AC6A8231729080022DAD5 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5AC6A7231729080022DAD5 /* Grid.swift */; };
-		BB6CF958221450FD00377FE8 /* Textures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6CF957221450FD00377FE8 /* Textures.swift */; };
-		BBAC50C821C463CC00AD7837 /* Interactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAC50C721C463CC00AD7837 /* Interactions.swift */; };
-		BBC78EF821B5986B00749648 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC78EF721B5986B00749648 /* Shapes.swift */; };
-		BBC78F1A21B59F3D00749648 /* MeterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC78F1921B59F3D00749648 /* MeterBar.swift */; };
-		BBE3C44D22B119D7002D0E8B /* Lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE3C44C22B119D7002D0E8B /* Lines.swift */; };
+		BB2E0365251969C40095F7F3 /* XvButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2E0364251969C40095F7F3 /* XvButton.swift */; };
+		BB2E0370251983DD0095F7F3 /* XvVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2E036F251983DD0095F7F3 /* XvVIew.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,20 +40,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB0161372515981E0044483C /* XvInputText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvInputText.swift; path = Drawing/Text/XvInputText.swift; sourceTree = "<group>"; };
+		BB016139251598430044483C /* XvText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvText.swift; path = Drawing/Text/XvText.swift; sourceTree = "<group>"; };
+		BB01613B2515988A0044483C /* Lines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Lines.swift; path = Drawing/Lines/Lines.swift; sourceTree = "<group>"; };
+		BB01613C2515988A0044483C /* XvLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XvLine.swift; path = Drawing/Lines/XvLine.swift; sourceTree = "<group>"; };
+		BB01613F251598A70044483C /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Text.swift; path = Drawing/Text/Text.swift; sourceTree = "<group>"; };
+		BB016141251598B10044483C /* XvShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XvShape.swift; path = Drawing/Shapes/XvShape.swift; sourceTree = "<group>"; };
+		BB016142251598B10044483C /* XvRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XvRect.swift; path = Drawing/Shapes/XvRect.swift; sourceTree = "<group>"; };
+		BB016143251598B10044483C /* XvImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XvImage.swift; path = Drawing/Shapes/XvImage.swift; sourceTree = "<group>"; };
+		BB016144251598B10044483C /* Shapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Shapes.swift; path = Drawing/Shapes/Shapes.swift; sourceTree = "<group>"; };
+		BB016145251598B20044483C /* XvCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XvCircle.swift; path = Drawing/Shapes/XvCircle.swift; sourceTree = "<group>"; };
+		BB01614D2515992A0044483C /* MeterBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeterBar.swift; path = Components/MeterBar.swift; sourceTree = "<group>"; };
+		BB01614F251599540044483C /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Grid.swift; path = Textures/Grid.swift; sourceTree = "<group>"; };
+		BB016150251599540044483C /* Textures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Textures.swift; path = Textures/Textures.swift; sourceTree = "<group>"; };
+		BB016153251599850044483C /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		BB016157251599B90044483C /* Screen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		BB016159251599C60044483C /* Interactions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactions.swift; sourceTree = "<group>"; };
+		BB01615B251599CF0044483C /* Anim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anim.swift; sourceTree = "<group>"; };
 		BB1E248224AD409C00DEBD9E /* XvUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XvUtils.xcodeproj; path = ../XvUtils/XvUtils.xcodeproj; sourceTree = "<group>"; };
-		BB1FD9A0243CBC340091A4DE /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Color.swift; path = Public/Color.swift; sourceTree = "<group>"; };
-		BB56346F21B594B400C98592 /* Anim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Anim.swift; path = Public/Anim.swift; sourceTree = "<group>"; };
-		BB56347021B594B400C98592 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Text.swift; path = Public/Text.swift; sourceTree = "<group>"; };
-		BB56347121B594B400C98592 /* Screen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Screen.swift; path = Public/Screen.swift; sourceTree = "<group>"; };
+		BB2E0364251969C40095F7F3 /* XvButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvButton.swift; path = Components/XvButton.swift; sourceTree = "<group>"; };
+		BB2E036F251983DD0095F7F3 /* XvVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvVIew.swift; path = Drawing/XvVIew.swift; sourceTree = "<group>"; };
 		BB56347521B594D400C98592 /* XvGui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XvGui.h; path = Private/Basics/XvGui.h; sourceTree = SOURCE_ROOT; };
 		BB56347621B594D400C98592 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Private/Basics/Info.plist; sourceTree = SOURCE_ROOT; };
-		BB5AC6A7231729080022DAD5 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Grid.swift; path = Public/Grid.swift; sourceTree = "<group>"; };
 		BB6291D921B56A2E00AAD524 /* XvGui.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XvGui.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB6CF957221450FD00377FE8 /* Textures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Textures.swift; path = Public/Textures.swift; sourceTree = "<group>"; };
-		BBAC50C721C463CC00AD7837 /* Interactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Interactions.swift; path = Public/Interactions.swift; sourceTree = "<group>"; };
-		BBC78EF721B5986B00749648 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Shapes.swift; path = Public/Shapes.swift; sourceTree = "<group>"; };
-		BBC78F1921B59F3D00749648 /* MeterBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MeterBar.swift; path = Public/MeterBar.swift; sourceTree = "<group>"; };
-		BBE3C44C22B119D7002D0E8B /* Lines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Lines.swift; path = Public/Lines.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +77,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB01611D251595E30044483C /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				BB2E036F251983DD0095F7F3 /* XvVIew.swift */,
+				BB016134251597DD0044483C /* Shapes */,
+				BB016136251598000044483C /* Text */,
+				BB016135251597F50044483C /* Lines */,
+			);
+			name = Drawing;
+			sourceTree = "<group>";
+		};
+		BB016134251597DD0044483C /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				BB016141251598B10044483C /* XvShape.swift */,
+				BB016142251598B10044483C /* XvRect.swift */,
+				BB016143251598B10044483C /* XvImage.swift */,
+				BB016145251598B20044483C /* XvCircle.swift */,
+				BB016144251598B10044483C /* Shapes.swift */,
+			);
+			name = Shapes;
+			sourceTree = "<group>";
+		};
+		BB016135251597F50044483C /* Lines */ = {
+			isa = PBXGroup;
+			children = (
+				BB01613C2515988A0044483C /* XvLine.swift */,
+				BB01613B2515988A0044483C /* Lines.swift */,
+			);
+			name = Lines;
+			sourceTree = "<group>";
+		};
+		BB016136251598000044483C /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				BB016139251598430044483C /* XvText.swift */,
+				BB0161372515981E0044483C /* XvInputText.swift */,
+				BB01613F251598A70044483C /* Text.swift */,
+			);
+			name = Text;
+			sourceTree = "<group>";
+		};
+		BB01614B251599080044483C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BB2E0364251969C40095F7F3 /* XvButton.swift */,
+				BB01614D2515992A0044483C /* MeterBar.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		BB01614C251599130044483C /* Textures */ = {
+			isa = PBXGroup;
+			children = (
+				BB01614F251599540044483C /* Grid.swift */,
+				BB016150251599540044483C /* Textures.swift */,
+			);
+			name = Textures;
+			sourceTree = "<group>";
+		};
 		BB1E248324AD409C00DEBD9E /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,16 +157,13 @@
 			isa = PBXGroup;
 			children = (
 				BB1E248224AD409C00DEBD9E /* XvUtils.xcodeproj */,
-				BB56346F21B594B400C98592 /* Anim.swift */,
-				BBAC50C721C463CC00AD7837 /* Interactions.swift */,
-				BB1FD9A0243CBC340091A4DE /* Color.swift */,
-				BB5AC6A7231729080022DAD5 /* Grid.swift */,
-				BBE3C44C22B119D7002D0E8B /* Lines.swift */,
-				BBC78F1921B59F3D00749648 /* MeterBar.swift */,
-				BBC78EF721B5986B00749648 /* Shapes.swift */,
-				BB56347121B594B400C98592 /* Screen.swift */,
-				BB56347021B594B400C98592 /* Text.swift */,
-				BB6CF957221450FD00377FE8 /* Textures.swift */,
+				BB016157251599B90044483C /* Screen.swift */,
+				BB016153251599850044483C /* Color.swift */,
+				BB016159251599C60044483C /* Interactions.swift */,
+				BB01615B251599CF0044483C /* Anim.swift */,
+				BB01611D251595E30044483C /* Drawing */,
+				BB01614C251599130044483C /* Textures */,
+				BB01614B251599080044483C /* Components */,
 				BB56346D21B5947200C98592 /* Private */,
 				BB6291DA21B56A2E00AAD524 /* Products */,
 				BBC2596921B56CC200A8517E /* Frameworks */,
@@ -156,7 +231,7 @@
 		BB6291D021B56A2E00AAD524 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Jason Snell";
 				TargetAttributes = {
 					BB6291D821B56A2E00AAD524 = {
@@ -214,16 +289,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB6CF958221450FD00377FE8 /* Textures.swift in Sources */,
-				BB1FD9A1243CBC340091A4DE /* Color.swift in Sources */,
-				BBE3C44D22B119D7002D0E8B /* Lines.swift in Sources */,
-				BB56347321B594B400C98592 /* Text.swift in Sources */,
-				BB56347221B594B400C98592 /* Anim.swift in Sources */,
-				BB56347421B594B400C98592 /* Screen.swift in Sources */,
-				BBC78F1A21B59F3D00749648 /* MeterBar.swift in Sources */,
-				BBAC50C821C463CC00AD7837 /* Interactions.swift in Sources */,
-				BBC78EF821B5986B00749648 /* Shapes.swift in Sources */,
-				BB5AC6A8231729080022DAD5 /* Grid.swift in Sources */,
+				BB01613E2515988A0044483C /* XvLine.swift in Sources */,
+				BB01615C251599CF0044483C /* Anim.swift in Sources */,
+				BB016140251598A70044483C /* Text.swift in Sources */,
+				BB2E0365251969C40095F7F3 /* XvButton.swift in Sources */,
+				BB016148251598B20044483C /* XvImage.swift in Sources */,
+				BB0161382515981E0044483C /* XvInputText.swift in Sources */,
+				BB016152251599540044483C /* Textures.swift in Sources */,
+				BB016158251599B90044483C /* Screen.swift in Sources */,
+				BB016149251598B20044483C /* Shapes.swift in Sources */,
+				BB01614E2515992A0044483C /* MeterBar.swift in Sources */,
+				BB016151251599540044483C /* Grid.swift in Sources */,
+				BB01614A251598B20044483C /* XvCircle.swift in Sources */,
+				BB016147251598B20044483C /* XvRect.swift in Sources */,
+				BB01613D2515988A0044483C /* Lines.swift in Sources */,
+				BB01613A251598430044483C /* XvText.swift in Sources */,
+				BB2E0370251983DD0095F7F3 /* XvVIew.swift in Sources */,
+				BB016146251598B20044483C /* XvShape.swift in Sources */,
+				BB016154251599850044483C /* Color.swift in Sources */,
+				BB01615A251599C60044483C /* Interactions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +340,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -322,6 +407,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -368,7 +454,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = Private/Basics/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -398,7 +484,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = Private/Basics/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
