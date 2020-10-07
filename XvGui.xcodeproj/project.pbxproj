@@ -27,6 +27,7 @@
 		BB1E248824AD40A200DEBD9E /* XvUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1E248724AD409C00DEBD9E /* XvUtils.framework */; };
 		BB2E0365251969C40095F7F3 /* XvButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2E0364251969C40095F7F3 /* XvButton.swift */; };
 		BB2E0370251983DD0095F7F3 /* XvVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2E036F251983DD0095F7F3 /* XvVIew.swift */; };
+		BB79A517252E4718003CAAE4 /* XvSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB79A516252E4718003CAAE4 /* XvSegmentedControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		BB56347521B594D400C98592 /* XvGui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XvGui.h; path = Private/Basics/XvGui.h; sourceTree = SOURCE_ROOT; };
 		BB56347621B594D400C98592 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Private/Basics/Info.plist; sourceTree = SOURCE_ROOT; };
 		BB6291D921B56A2E00AAD524 /* XvGui.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XvGui.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB79A516252E4718003CAAE4 /* XvSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvSegmentedControl.swift; path = Components/XvSegmentedControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				BB2E0364251969C40095F7F3 /* XvButton.swift */,
+				BB79A516252E4718003CAAE4 /* XvSegmentedControl.swift */,
 				BB01614D2515992A0044483C /* MeterBar.swift */,
 			);
 			name = Components;
@@ -307,6 +310,7 @@
 				BB2E0370251983DD0095F7F3 /* XvVIew.swift in Sources */,
 				BB016146251598B20044483C /* XvShape.swift in Sources */,
 				BB016154251599850044483C /* Color.swift in Sources */,
+				BB79A517252E4718003CAAE4 /* XvSegmentedControl.swift in Sources */,
 				BB01615A251599C60044483C /* Interactions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
