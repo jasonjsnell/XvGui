@@ -8,6 +8,8 @@
 
 import UIKit
 
+//example of action: #selector(segmentedValueChanged(sender:))
+
 public class XvSegmentedControl:XvView {
     
     fileprivate let _segmentedControl:UISegmentedControl
@@ -19,8 +21,8 @@ public class XvSegmentedControl:XvView {
         action:Selector,
         
         //location
-        x:CGFloat,
-        y:CGFloat,
+        x:CGFloat = 0,
+        y:CGFloat = 0,
         width:CGFloat,
         height:CGFloat,
         
@@ -70,5 +72,9 @@ public class XvSegmentedControl:XvView {
                 
         super.init(x: x, y: y, width: width, height: height)
         _view = _segmentedControl as UISegmentedControl
+    }
+    
+    public func select(segment:Int) {
+        _segmentedControl.selectedSegmentIndex = segment
     }
 }

@@ -28,6 +28,8 @@
 		BB2E0365251969C40095F7F3 /* XvButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2E0364251969C40095F7F3 /* XvButton.swift */; };
 		BB2E0370251983DD0095F7F3 /* XvVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2E036F251983DD0095F7F3 /* XvVIew.swift */; };
 		BB79A517252E4718003CAAE4 /* XvSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB79A516252E4718003CAAE4 /* XvSegmentedControl.swift */; };
+		BB79A51E252E70D9003CAAE4 /* XvSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB79A51D252E70D9003CAAE4 /* XvSlider.swift */; };
+		BBF7A1CB252F6CAA006D32FC /* XvCustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF7A1CA252F6CAA006D32FC /* XvCustomSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		BB56347621B594D400C98592 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Private/Basics/Info.plist; sourceTree = SOURCE_ROOT; };
 		BB6291D921B56A2E00AAD524 /* XvGui.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XvGui.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB79A516252E4718003CAAE4 /* XvSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvSegmentedControl.swift; path = Components/XvSegmentedControl.swift; sourceTree = "<group>"; };
+		BB79A51D252E70D9003CAAE4 /* XvSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvSlider.swift; path = Components/XvSlider.swift; sourceTree = "<group>"; };
+		BBF7A1CA252F6CAA006D32FC /* XvCustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvCustomSlider.swift; path = Components/XvCustomSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,8 @@
 			children = (
 				BB2E0364251969C40095F7F3 /* XvButton.swift */,
 				BB79A516252E4718003CAAE4 /* XvSegmentedControl.swift */,
+				BB79A51D252E70D9003CAAE4 /* XvSlider.swift */,
+				BBF7A1CA252F6CAA006D32FC /* XvCustomSlider.swift */,
 				BB01614D2515992A0044483C /* MeterBar.swift */,
 			);
 			name = Components;
@@ -301,10 +307,12 @@
 				BB016152251599540044483C /* Textures.swift in Sources */,
 				BB016158251599B90044483C /* Screen.swift in Sources */,
 				BB016149251598B20044483C /* Shapes.swift in Sources */,
+				BBF7A1CB252F6CAA006D32FC /* XvCustomSlider.swift in Sources */,
 				BB01614E2515992A0044483C /* MeterBar.swift in Sources */,
 				BB016151251599540044483C /* Grid.swift in Sources */,
 				BB01614A251598B20044483C /* XvCircle.swift in Sources */,
 				BB016147251598B20044483C /* XvRect.swift in Sources */,
+				BB79A51E252E70D9003CAAE4 /* XvSlider.swift in Sources */,
 				BB01613D2515988A0044483C /* Lines.swift in Sources */,
 				BB01613A251598430044483C /* XvText.swift in Sources */,
 				BB2E0370251983DD0095F7F3 /* XvVIew.swift in Sources */,

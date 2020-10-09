@@ -32,7 +32,7 @@ public class XvText:XvView{
         
         //text properties
         text:String = "",
-        color:UIColor = .white,
+        color:UIColor = .label,
         fontName:String = Text.HELV_NEUE,
         size:CGFloat = UIFont.systemFontSize,
         alignment:NSTextAlignment = .left,
@@ -287,10 +287,9 @@ public class XvText:XvView{
         
     }
     
-    public func showBoundingBox(){
+    public override func showBoundingBox(){
         
-        _view.layer.borderColor = UIColor.red.cgColor
-        _view.layer.borderWidth = 2.0
+        super.showBoundingBox()
         
         _label?.layer.borderColor = UIColor.blue.cgColor
         _label?.layer.borderWidth = 2.0

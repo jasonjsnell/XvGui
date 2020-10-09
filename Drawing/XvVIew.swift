@@ -60,6 +60,11 @@ open class XvView {
         set { _view.frame.size.height = newValue }
     }
     
+    public var frame:CGRect {
+        get { return _view.frame }
+        set { _view.frame = newValue }
+    }
+    
     public var alpha:CGFloat {
         get { return _view.alpha }
         set {
@@ -68,6 +73,25 @@ open class XvView {
             _view.alpha = newAlpha
         }
     }
+    
+    public func rotate(degrees:CGFloat){
+        
+        let transform:CGAffineTransform = CGAffineTransform(
+            rotationAngle: CGFloat(
+                CGFloat.pi*degrees/180.0
+            )
+        )
+        _view.transform = transform
+    }
+    
 
+    public func showBoundingBox(){
+        print("showBoundingBox")
+        _view.layer.borderColor = UIColor.red.cgColor
+        _view.layer.borderWidth = 2.0
+    }
+    
+    
+    
     
 }
