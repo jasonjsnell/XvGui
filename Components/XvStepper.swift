@@ -19,7 +19,7 @@ public class XvStepper:XvView {
         minValue:Double = 0.0,
         maxValue:Double = 1.0,
         startingValue:Double = 0.0,
-        stepValue:Double = 1.0,
+        stepValue:Double = 0.1,
         wraps:Bool = false,
         
         //location
@@ -32,11 +32,12 @@ public class XvStepper:XvView {
         
         _stepper = UIStepper()
         _stepper.frame = CGRect(x:x, y:y, width: width, height: height)
-        
-        _stepper.value = startingValue
         _stepper.maximumValue = maxValue
         _stepper.minimumValue = minValue
         _stepper.stepValue = stepValue
+        
+        //value must be set after max and min
+        _stepper.value = startingValue
         
         _stepper.autorepeat = true
         _stepper.wraps = wraps
