@@ -86,7 +86,7 @@ open class XvView {
     
 
     public func showBoundingBox(){
-        print("showBoundingBox")
+        //print("showBoundingBox")
         _view.layer.borderColor = UIColor.red.cgColor
         _view.layer.borderWidth = 2.0
     }

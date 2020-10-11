@@ -59,5 +59,10 @@ public class XvSlider:XvView {
         }
         
     }
+    
+    public var value:Float {
+        get { return _slider.value }
+        set { _slider.value = newValue }
+    }
 }
 
