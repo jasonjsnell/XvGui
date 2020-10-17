@@ -29,6 +29,7 @@
 		BB2E0370251983DD0095F7F3 /* XvVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2E036F251983DD0095F7F3 /* XvVIew.swift */; };
 		BB79A517252E4718003CAAE4 /* XvSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB79A516252E4718003CAAE4 /* XvSegmentedControl.swift */; };
 		BB79A51E252E70D9003CAAE4 /* XvSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB79A51D252E70D9003CAAE4 /* XvSlider.swift */; };
+		BBCAA724253B6467001E0C1E /* XvGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCAA723253B6467001E0C1E /* XvGraph.swift */; };
 		BBD4FBEA253127B00010B93E /* XvStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD4FBE9253127B00010B93E /* XvStepper.swift */; };
 		BBF7A1CB252F6CAA006D32FC /* XvCustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF7A1CA252F6CAA006D32FC /* XvCustomSlider.swift */; };
 /* End PBXBuildFile section */
@@ -69,6 +70,7 @@
 		BB6291D921B56A2E00AAD524 /* XvGui.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XvGui.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB79A516252E4718003CAAE4 /* XvSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvSegmentedControl.swift; path = Components/XvSegmentedControl.swift; sourceTree = "<group>"; };
 		BB79A51D252E70D9003CAAE4 /* XvSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvSlider.swift; path = Components/XvSlider.swift; sourceTree = "<group>"; };
+		BBCAA723253B6467001E0C1E /* XvGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvGraph.swift; path = Drawing/XvGraph.swift; sourceTree = "<group>"; };
 		BBD4FBE9253127B00010B93E /* XvStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvStepper.swift; path = Components/XvStepper.swift; sourceTree = "<group>"; };
 		BBF7A1CA252F6CAA006D32FC /* XvCustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvCustomSlider.swift; path = Components/XvCustomSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				BB2E036F251983DD0095F7F3 /* XvVIew.swift */,
+				BBCAA723253B6467001E0C1E /* XvGraph.swift */,
 				BB016134251597DD0044483C /* Shapes */,
 				BB016136251598000044483C /* Text */,
 				BB016135251597F50044483C /* Lines */,
@@ -301,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBCAA724253B6467001E0C1E /* XvGraph.swift in Sources */,
 				BB01613E2515988A0044483C /* XvLine.swift in Sources */,
 				BB01615C251599CF0044483C /* Anim.swift in Sources */,
 				BB016140251598A70044483C /* Text.swift in Sources */,
