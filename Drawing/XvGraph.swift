@@ -177,28 +177,29 @@ public class XvGraph:UIView {
         
         //data points will animate left to right
         //meaning data array will be applied right to left
-        let xInc:CGFloat = (_screenW / CGFloat(yDataSet.count)) * -1
-        _render(line: line, yDataSet: yDataSet, width: _screenW, startingX: _screenW, xInc: xInc)
+        let xInc:CGFloat = _screenW / CGFloat(yDataSet.count-1)
+        let reversedData:[CGFloat] = yDataSet.reversed()
+        _render(line: line, yDataSet: reversedData, xInc: xInc)
     }
     
     fileprivate func renderRightLeft(line:XvLine, yDataSet:[CGFloat]) {
     
         //data points will animate from right to left
         //meaning data array will be applied left to right
-        let xInc:CGFloat = _screenW / CGFloat(yDataSet.count)
-        _render(line: line, yDataSet: yDataSet, width: _screenW, startingX: 0, xInc: xInc)
+        let xInc:CGFloat = _screenW / CGFloat(yDataSet.count-1)
+        _render(line: line, yDataSet: yDataSet, xInc: xInc)
     }
     
     fileprivate func renderOutsideIn(line:XvLine, yDataSet:[CGFloat]) {
         
         //data points animate from the outside to center
         
-        let xInc:CGFloat = (_screenW / 2) / CGFloat(yDataSet.count)
+        let xInc:CGFloat = (_screenW / 2) / CGFloat(yDataSet.count-1)
         
         let reversedData:[CGFloat] = yDataSet.reversed()
         let doubledData:[CGFloat] = reversedData + yDataSet
         
-        _render(line: line, yDataSet: doubledData, width: _screenW, startingX: 0, xInc: xInc)
+        _render(line: line, yDataSet: doubledData, xInc: xInc)
         
     }
     
@@ -206,12 +207,12 @@ public class XvGraph:UIView {
         
         //data points animate from the inside out
         
-        let xInc:CGFloat = (_screenW / 2) / CGFloat(yDataSet.count)
+        let xInc:CGFloat = (_screenW / 2) / CGFloat(yDataSet.count-1)
         
         let reversedData:[CGFloat] = yDataSet.reversed()
         let doubledData:[CGFloat] = yDataSet + reversedData
         
-        _render(line: line, yDataSet: doubledData, width: _screenW, startingX: 0, xInc: xInc)
+        _render(line: line, yDataSet: doubledData, xInc: xInc)
         
     }
     
@@ -219,12 +220,10 @@ public class XvGraph:UIView {
     fileprivate func _render(
         line:XvLine,
         yDataSet:[CGFloat],
-        width:CGFloat,
-        startingX:CGFloat,
         xInc:CGFloat
     ) {
         
-        var xLoc:CGFloat = startingX
+        var xLoc:CGFloat = 0
         var points:[CGPoint] = []
         
         // loop through y data set
