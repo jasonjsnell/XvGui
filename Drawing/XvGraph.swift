@@ -23,9 +23,13 @@ public class XvGraph:UIView {
     }
     
     fileprivate var _zeroBaseline:CGFloat
+    fileprivate var _zeroBaselinePct:CGFloat
     public var zeroBaseline:CGFloat {
         get { return _zeroBaseline }
-        set { _zeroBaseline = newValue }
+        set {
+            _zeroBaseline = newValue
+            _zeroBaselinePct = _zeroBaseline / Screen.height
+        }
     }
     
     fileprivate var _alignment:String
@@ -59,6 +63,7 @@ public class XvGraph:UIView {
        
         //default baseline is middle of frame
         _zeroBaseline = Screen.height / 2
+        _zeroBaselinePct = _zeroBaseline / Screen.height
         
         //amplifier - how much to magnify values in points array
         _amplifier = 1.0
@@ -96,6 +101,7 @@ public class XvGraph:UIView {
         _screenW = w
         _screenH = h
         self.frame =  CGRect(x: 0, y: 0, width: w, height: h)
+        _zeroBaseline = _screenH * _zeroBaselinePct
     }
     
     //MARK: Refresh Data
@@ -246,15 +252,6 @@ public class XvGraph:UIView {
         //pass completed array into the XvLine for rendering
         line.update(points: points)
     }
-    
-    
-    
-    
-
-    
-    
-    
-    
     
     fileprivate func getY(from y:CGFloat) -> CGFloat {
         
