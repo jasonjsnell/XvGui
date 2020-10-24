@@ -55,6 +55,11 @@ public class XvGraph:UIView {
         
     }
     
+    //getter
+    public var lines:[XvLine] {
+        get { return _lines }
+    }
+    
     fileprivate var _screenH:CGFloat
     fileprivate var _screenW:CGFloat
     
