@@ -20,7 +20,7 @@
 		BB01614E2515992A0044483C /* MeterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01614D2515992A0044483C /* MeterBar.swift */; };
 		BB016151251599540044483C /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01614F251599540044483C /* Grid.swift */; };
 		BB016152251599540044483C /* Textures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016150251599540044483C /* Textures.swift */; };
-		BB016154251599850044483C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016153251599850044483C /* Color.swift */; };
+		BB016154251599850044483C /* XvColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016153251599850044483C /* XvColor.swift */; };
 		BB016158251599B90044483C /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016157251599B90044483C /* Screen.swift */; };
 		BB01615A251599C60044483C /* Interactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016159251599C60044483C /* Interactions.swift */; };
 		BB01615C251599CF0044483C /* Anim.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01615B251599CF0044483C /* Anim.swift */; };
@@ -58,7 +58,7 @@
 		BB01614D2515992A0044483C /* MeterBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeterBar.swift; path = Components/MeterBar.swift; sourceTree = "<group>"; };
 		BB01614F251599540044483C /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Grid.swift; path = Textures/Grid.swift; sourceTree = "<group>"; };
 		BB016150251599540044483C /* Textures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Textures.swift; path = Textures/Textures.swift; sourceTree = "<group>"; };
-		BB016153251599850044483C /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		BB016153251599850044483C /* XvColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XvColor.swift; sourceTree = "<group>"; };
 		BB016157251599B90044483C /* Screen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		BB016159251599C60044483C /* Interactions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactions.swift; sourceTree = "<group>"; };
 		BB01615B251599CF0044483C /* Anim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anim.swift; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 			children = (
 				BB1E248224AD409C00DEBD9E /* XvUtils.xcodeproj */,
 				BB016157251599B90044483C /* Screen.swift */,
-				BB016153251599850044483C /* Color.swift */,
+				BB016153251599850044483C /* XvColor.swift */,
 				BB016159251599C60044483C /* Interactions.swift */,
 				BB01615B251599CF0044483C /* Anim.swift */,
 				BB01611D251595E30044483C /* Drawing */,
@@ -325,7 +325,7 @@
 				BB01613A251598430044483C /* XvText.swift in Sources */,
 				BB2E0370251983DD0095F7F3 /* XvVIew.swift in Sources */,
 				BB016146251598B20044483C /* XvShape.swift in Sources */,
-				BB016154251599850044483C /* Color.swift in Sources */,
+				BB016154251599850044483C /* XvColor.swift in Sources */,
 				BB79A517252E4718003CAAE4 /* XvSegmentedControl.swift in Sources */,
 				BB01615A251599C60044483C /* Interactions.swift in Sources */,
 			);
