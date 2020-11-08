@@ -41,7 +41,7 @@ public class XvSegmentedControl:XvView {
         //frame
         _segmentedControl = UISegmentedControl (items: items)
         _segmentedControl.frame = CGRect(x: x, y: y, width: width, height: height)
-        
+
         //background
         _segmentedControl.backgroundColor = backgroundColor
         _segmentedControl.layer.borderWidth = borderWidth

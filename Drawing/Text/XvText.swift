@@ -200,8 +200,7 @@ public class XvText:XvView{
     }
     
     //MARK: Resizing
-    fileprivate func refreshSize(){
-        
+    public override func refreshSize(){
         
         let textContentW:CGFloat = _label!.intrinsicContentSize.width
         let textContentH:CGFloat = _label!.intrinsicContentSize.height

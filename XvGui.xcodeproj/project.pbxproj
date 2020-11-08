@@ -27,6 +27,7 @@
 		BB1E248824AD40A200DEBD9E /* XvUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1E248724AD409C00DEBD9E /* XvUtils.framework */; };
 		BB2E0365251969C40095F7F3 /* XvButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2E0364251969C40095F7F3 /* XvButton.swift */; };
 		BB2E0370251983DD0095F7F3 /* XvVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2E036F251983DD0095F7F3 /* XvVIew.swift */; };
+		BB4D529A255877AC00FEFF08 /* XvGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4D5299255877AC00FEFF08 /* XvGrid.swift */; };
 		BB79A517252E4718003CAAE4 /* XvSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB79A516252E4718003CAAE4 /* XvSegmentedControl.swift */; };
 		BB79A51E252E70D9003CAAE4 /* XvSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB79A51D252E70D9003CAAE4 /* XvSlider.swift */; };
 		BBCAA724253B6467001E0C1E /* XvGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCAA723253B6467001E0C1E /* XvGraph.swift */; };
@@ -65,6 +66,7 @@
 		BB1E248224AD409C00DEBD9E /* XvUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XvUtils.xcodeproj; path = ../XvUtils/XvUtils.xcodeproj; sourceTree = "<group>"; };
 		BB2E0364251969C40095F7F3 /* XvButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvButton.swift; path = Components/XvButton.swift; sourceTree = "<group>"; };
 		BB2E036F251983DD0095F7F3 /* XvVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvVIew.swift; path = Drawing/XvVIew.swift; sourceTree = "<group>"; };
+		BB4D5299255877AC00FEFF08 /* XvGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvGrid.swift; path = Components/XvGrid.swift; sourceTree = "<group>"; };
 		BB56347521B594D400C98592 /* XvGui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XvGui.h; path = Private/Basics/XvGui.h; sourceTree = SOURCE_ROOT; };
 		BB56347621B594D400C98592 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Private/Basics/Info.plist; sourceTree = SOURCE_ROOT; };
 		BB6291D921B56A2E00AAD524 /* XvGui.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XvGui.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,8 +106,8 @@
 			children = (
 				BB016141251598B10044483C /* XvShape.swift */,
 				BB016142251598B10044483C /* XvRect.swift */,
-				BB016143251598B10044483C /* XvImage.swift */,
 				BB016145251598B20044483C /* XvCircle.swift */,
+				BB016143251598B10044483C /* XvImage.swift */,
 				BB016144251598B10044483C /* Shapes.swift */,
 			);
 			name = Shapes;
@@ -134,10 +136,11 @@
 			isa = PBXGroup;
 			children = (
 				BB2E0364251969C40095F7F3 /* XvButton.swift */,
+				BB4D5299255877AC00FEFF08 /* XvGrid.swift */,
 				BB79A516252E4718003CAAE4 /* XvSegmentedControl.swift */,
 				BB79A51D252E70D9003CAAE4 /* XvSlider.swift */,
-				BBD4FBE9253127B00010B93E /* XvStepper.swift */,
 				BBF7A1CA252F6CAA006D32FC /* XvCustomSlider.swift */,
+				BBD4FBE9253127B00010B93E /* XvStepper.swift */,
 				BB01614D2515992A0044483C /* MeterBar.swift */,
 			);
 			name = Components;
@@ -313,6 +316,7 @@
 				BB016148251598B20044483C /* XvImage.swift in Sources */,
 				BB0161382515981E0044483C /* XvInputText.swift in Sources */,
 				BB016152251599540044483C /* Textures.swift in Sources */,
+				BB4D529A255877AC00FEFF08 /* XvGrid.swift in Sources */,
 				BB016158251599B90044483C /* Screen.swift in Sources */,
 				BB016149251598B20044483C /* Shapes.swift in Sources */,
 				BBF7A1CB252F6CAA006D32FC /* XvCustomSlider.swift in Sources */,

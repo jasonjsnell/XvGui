@@ -13,6 +13,7 @@ import UIKit
 open class XvView {
     
     internal var _view:UIView
+    internal var _shapeLayer:CAShapeLayer
 
     public init(
         x:CGFloat,
@@ -28,6 +29,13 @@ open class XvView {
                 height: height
             )
         )
+        
+        _shapeLayer = CAShapeLayer()
+        
+        //system colors (like .systemBackground) don't work on CAShapeLayers, so the background color will be set direcly on the UIView
+        _shapeLayer.fillColor = UIColor.clear.cgColor
+        _view.layer.addSublayer(_shapeLayer)
+        
     }
 
     //MARK: Frame
@@ -86,11 +94,26 @@ open class XvView {
     
 
     public func showBoundingBox(){
-        //print("showBoundingBox")
+        
         _view.layer.borderColor = UIColor.red.cgColor
         _view.layer.borderWidth = 2.0
     }
     
+    
+    //call when changing size of XvShape and need gradients and sublayers to resize too
+    public func refreshSize(){
+        print("is XvView refreshSize ever called?")
+        _view.layer.frame.size.width = _view.frame.size.width
+        _view.layer.frame.size.height = _view.frame.size.height
+        
+        if let sublayers:[CALayer] = _view.layer.sublayers {
+            
+            for sublayer in sublayers {
+                sublayer.frame.size.width = _view.frame.size.width
+                sublayer.frame.size.height = _view.frame.size.height
+            }
+        }        
+    }
     
     
     
