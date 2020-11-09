@@ -16,7 +16,7 @@ public class XvGrid:XvCompositeShape {
     public static let ALIGN_TOP:String = "alignTop"
     public static let ALIGN_BOTTOM :String = "alignBottom"
     
-    fileprivate var items:[XvView] = []
+    public var items:[XvView] = []
     fileprivate let cellWidth:CGFloat
     fileprivate let cellHeight:CGFloat
     fileprivate let cellAlignHorizontal:String
