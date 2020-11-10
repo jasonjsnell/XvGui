@@ -13,13 +13,23 @@ public protocol XvViewTapDelegate:class {
     func tapEnded(view:XvView)
 }
 public protocol XvViewDragDelegate:class {
-    func dragBegan(view:XvView)
-    func dragging(view:XvView)
-    func dragEnded(view:XvView)
+    func dragBegan(view:XvView, location:XvViewLocation)
+    func dragging(view:XvView, location:XvViewLocation)
+    func dragEnded(view:XvView, location:XvViewLocation)
 }
 public protocol XvViewHoverDelegate:class {
     func hoverBegan(view:XvView)
     func hoverEnded(view:XvView)
+}
+
+public struct XvViewLocation {
+    
+    public init(local:CGPoint, global:CGPoint) {
+        self.local = local
+        self.global = global
+    }
+    public var local:CGPoint
+    public var global:CGPoint
 }
 
 //class with x, y, width, height, etc...
@@ -187,21 +197,44 @@ open class XvView {
         view.isUserInteractionEnabled = true
     }
     
+    
     @objc func viewDragged(){
         
         if (drag != nil) {
-         
-            if (drag!.state == .began) {
-                
-                dragDelegate?.dragBegan(view: self)
-                
-            } else if (drag!.state == .changed) {
-                
-                dragDelegate?.dragging(view: self)
             
-            } else if (drag!.state == .ended) {
+            //get global loc of frame
+            if let globalFrame:CGPoint = view.superview?.convert(
+                view.frame.origin, to: nil
+            ) {
                 
-                dragDelegate?.dragEnded(view: self)
+                //relative xy of click inside the view
+                let local:CGPoint = drag!.location(in: view)
+                
+                //calc global by add local xy to global frame xy
+                let global:CGPoint = CGPoint(
+                    x: globalFrame.x + local.x,
+                    y: globalFrame.y + local.y
+                )
+                
+                //create custom loc object with both
+                let location:XvViewLocation = XvViewLocation(
+                    local: local,
+                    global: global
+                )
+                
+                //send out to delegate
+                if (drag!.state == .began) {
+                    
+                    dragDelegate?.dragBegan(view: self, location: location)
+                    
+                } else if (drag!.state == .changed) {
+                    
+                    dragDelegate?.dragging(view: self, location: location)
+                
+                } else if (drag!.state == .ended) {
+                    
+                    dragDelegate?.dragEnded(view: self, location: location)
+                }
             }
         }
     }
