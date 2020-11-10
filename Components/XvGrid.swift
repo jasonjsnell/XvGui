@@ -35,7 +35,6 @@ public class XvGrid:XvCompositeShape {
         horizontal:Bool = true
     ){
         
-        self.items = items
         self.cellWidth = cellWidth
         self.cellHeight = cellHeight
         self.cellAlignHorizontal = cellAlignHorizontal
@@ -50,16 +49,30 @@ public class XvGrid:XvCompositeShape {
     
     public func add(items:[XvView]) {
         
+        //add to view
         for item in items {
             add(view: item)
         }
+        
+        //add to array
+        self.items += items
+        
+        //render
+        refreshSize()
+    }
+    
+    public func remove(item:XvView) {
+        
+        if let index:Int = items.firstIndex(of: item) {
+            print("removing", item, "at index", index)
+            items.remove(at: index)
+        }
+        remove(view: item)
         refreshSize()
     }
     
     public override func refreshSize() {
         super.refreshSize()
-        
-        print("grid refreshSize")
         
         var buildX:CGFloat = 0
         var buildY:CGFloat = 0

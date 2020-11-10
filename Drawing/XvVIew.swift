@@ -34,10 +34,17 @@ public struct XvViewLocation {
 
 //class with x, y, width, height, etc...
 
-open class XvView {
+open class XvView:Equatable {
+    
+    //Equatable comparison - use the timestamp ID
+    public static func == (lhs: XvView, rhs: XvView) -> Bool {
+        return lhs.timestampID == rhs.timestampID
+    }
+    
     
     internal var _view:UIView
     internal var _shapeLayer:CAShapeLayer
+    fileprivate let timestampID:Double
 
     public init(
         x:CGFloat,
@@ -45,6 +52,10 @@ open class XvView {
         width:CGFloat,
         height:CGFloat)
     {
+        
+        //unique ID so item can be equatable
+        timestampID = Date().timeIntervalSince1970
+        
         _view = UIView(
             frame: CGRect(
                 x: x,
