@@ -116,6 +116,19 @@ open class XvView:Equatable {
         }
     }
     
+    //climb up ladder of views to get the root view
+    public var rootView:UIView {
+        
+        get {
+            
+            var v:UIView = self.view
+            while let s = v.superview {
+                v = s
+            }
+            return v
+        }
+    }
+    
     //call when changing size of XvShape and need gradients and sublayers to resize too
     public func refreshSize(){
         print("is XvView refreshSize ever called?")
@@ -202,7 +215,7 @@ open class XvView:Equatable {
             target: self,
             action: #selector(viewDragged)
         )
-        drag!.minimumPressDuration = 0.1
+        drag!.minimumPressDuration = 0.25
         
         view.addGestureRecognizer(drag!)
         view.isUserInteractionEnabled = true
@@ -214,39 +227,63 @@ open class XvView:Equatable {
         if (drag != nil) {
             
             //get global loc of frame
-            if let globalFrame:CGPoint = view.superview?.convert(
+            print("viewdragged")
+            
+            let globalFrame:CGPoint = rootView.convert(
                 view.frame.origin, to: nil
-            ) {
-                
-                //relative xy of click inside the view
-                let local:CGPoint = drag!.location(in: view)
-                
-                //calc global by add local xy to global frame xy
-                let global:CGPoint = CGPoint(
-                    x: globalFrame.x + local.x,
-                    y: globalFrame.y + local.y
-                )
-                
-                //create custom loc object with both
-                let location:XvViewLocation = XvViewLocation(
-                    local: local,
-                    global: global
-                )
-                
-                //send out to delegate
-                if (drag!.state == .began) {
-                    
-                    dragDelegate?.dragBegan(view: self, location: location)
-                    
-                } else if (drag!.state == .changed) {
-                    
-                    dragDelegate?.dragging(view: self, location: location)
-                
-                } else if (drag!.state == .ended) {
-                    
-                    dragDelegate?.dragEnded(view: self, location: location)
-                }
+            )
+            
+            //calc offset
+            var offsetX:CGFloat = 0
+            var offsetY:CGFloat = 0
+            
+            var v:UIView = self.view
+            offsetX += v.frame.origin.x
+            offsetY += v.frame.origin.y
+            print("")
+            print("view", v)
+            print("offsetX", offsetX)
+            print("offsetY", offsetY)
+            while let s = v.superview {
+                v = s
+                print("view", v)
+                offsetX += v.frame.origin.x
+                offsetY += v.frame.origin.y
+                print("offsetX", offsetX)
+                print("offsetY", offsetY)
             }
+            print("FINAL offsetX", offsetX)
+            print("FINAL offsetY", offsetY)
+                
+            //relative xy of click inside the view
+            let local:CGPoint = drag!.location(in: view)
+            
+            //calc global by add local xy to global frame xy
+            let global:CGPoint = CGPoint(
+                x: globalFrame.x + local.x,
+                y: globalFrame.y + local.y
+            )
+            
+            //create custom loc object with both
+            let location:XvViewLocation = XvViewLocation(
+                local: local,
+                global: global
+            )
+            
+            //send out to delegate
+            if (drag!.state == .began) {
+                
+                dragDelegate?.dragBegan(view: self, location: location)
+                
+            } else if (drag!.state == .changed) {
+                
+                dragDelegate?.dragging(view: self, location: location)
+            
+            } else if (drag!.state == .ended) {
+                
+                dragDelegate?.dragEnded(view: self, location: location)
+            }
+            
         }
     }
     

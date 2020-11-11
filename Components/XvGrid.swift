@@ -76,6 +76,8 @@ public class XvGrid:XvCompositeShape {
         
         var buildX:CGFloat = 0
         var buildY:CGFloat = 0
+        var gridWidth:CGFloat = 0
+        var gridHeight:CGFloat = 0
         
         for item in items {
             
@@ -107,16 +109,20 @@ public class XvGrid:XvCompositeShape {
             item.y = buildY + yOffset
             
             buildX += cellWidth
+            if (buildX > gridWidth) { gridWidth = buildX }
             
             if ((buildX + cellWidth) > width) {
                 buildY += cellHeight
+                if (buildY > gridHeight) { gridHeight = buildY }
                 buildX = 0
             }
         
         }
         
+        gridHeight += cellHeight
         
-        
+        self.width = gridWidth
+        self.height = gridHeight
         
     }
     
