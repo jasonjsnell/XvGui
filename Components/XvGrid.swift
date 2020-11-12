@@ -64,22 +64,53 @@ public class XvGrid:XvCompositeShape {
     public func remove(item:XvView) {
         
         if let index:Int = items.firstIndex(of: item) {
-            print("removing", item, "at index", index)
+            
+            //remove from array
             items.remove(at: index)
+            
+            //remove from view
+            remove(view: item)
+            
+            //render
+            refreshSize()
         }
-        remove(view: item)
+    }
+    
+    public func insert(item:XvView, at:Int) {
+        
+        //insert into array
+        items.insert(item, at: at)
+        
+        //add to view
+        add(view: item)
+        
+        //render
         refreshSize()
     }
     
+    public func getPosition(of item:XvView) -> Int? {
+        
+        if let index:Int = items.firstIndex(of: item) {
+            return index
+        }
+        return nil
+    }
+    
     public override func refreshSize() {
+        
         super.refreshSize()
         
         var buildX:CGFloat = 0
         var buildY:CGFloat = 0
-        var gridWidth:CGFloat = 0
         var gridHeight:CGFloat = 0
         
         for item in items {
+            
+            if ((buildX + cellWidth) > width) {
+                buildX = 0
+                buildY += cellHeight
+                if (buildY > gridHeight) { gridHeight = buildY }
+            }
             
             //MARK: Alignment
             //where the item rests inside the cell area
@@ -109,19 +140,17 @@ public class XvGrid:XvCompositeShape {
             item.y = buildY + yOffset
             
             buildX += cellWidth
-            if (buildX > gridWidth) { gridWidth = buildX }
             
-            if ((buildX + cellWidth) > width) {
-                buildY += cellHeight
-                if (buildY > gridHeight) { gridHeight = buildY }
-                buildX = 0
-            }
+            
+            
+            
+                        
         
         }
         
         gridHeight += cellHeight
         
-        self.width = gridWidth
+        //make sure height of grid view fits the items as they fill in, left to right, row after row
         self.height = gridHeight
         
     }

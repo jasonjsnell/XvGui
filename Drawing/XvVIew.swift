@@ -229,61 +229,39 @@ open class XvView:Equatable {
             //get global loc of frame
             print("viewdragged")
             
-            let globalFrame:CGPoint = rootView.convert(
+            if let globalPoint:CGPoint = view.superview?.convert(
                 view.frame.origin, to: nil
-            )
-            
-            //calc offset
-            var offsetX:CGFloat = 0
-            var offsetY:CGFloat = 0
-            
-            var v:UIView = self.view
-            offsetX += v.frame.origin.x
-            offsetY += v.frame.origin.y
-            print("")
-            print("view", v)
-            print("offsetX", offsetX)
-            print("offsetY", offsetY)
-            while let s = v.superview {
-                v = s
-                print("view", v)
-                offsetX += v.frame.origin.x
-                offsetY += v.frame.origin.y
-                print("offsetX", offsetX)
-                print("offsetY", offsetY)
+            ) {
+                
+                //relative xy of click inside the view
+                let localPoint:CGPoint = drag!.location(in: view)
+                
+                //calc global by add local xy to global frame xy
+                let viewInGlobal:CGPoint = CGPoint(
+                    x: globalPoint.x + localPoint.x,
+                    y: globalPoint.y + localPoint.y
+                )
+                
+                //create custom loc object with both
+                let location:XvViewLocation = XvViewLocation(
+                    local: localPoint,
+                    global: viewInGlobal
+                )
+                
+                //send out to delegate
+                if (drag!.state == .began) {
+                    
+                    dragDelegate?.dragBegan(view: self, location: location)
+                    
+                } else if (drag!.state == .changed) {
+                    
+                    dragDelegate?.dragging(view: self, location: location)
+                
+                } else if (drag!.state == .ended) {
+                    
+                    dragDelegate?.dragEnded(view: self, location: location)
+                }
             }
-            print("FINAL offsetX", offsetX)
-            print("FINAL offsetY", offsetY)
-                
-            //relative xy of click inside the view
-            let local:CGPoint = drag!.location(in: view)
-            
-            //calc global by add local xy to global frame xy
-            let global:CGPoint = CGPoint(
-                x: globalFrame.x + local.x,
-                y: globalFrame.y + local.y
-            )
-            
-            //create custom loc object with both
-            let location:XvViewLocation = XvViewLocation(
-                local: local,
-                global: global
-            )
-            
-            //send out to delegate
-            if (drag!.state == .began) {
-                
-                dragDelegate?.dragBegan(view: self, location: location)
-                
-            } else if (drag!.state == .changed) {
-                
-                dragDelegate?.dragging(view: self, location: location)
-            
-            } else if (drag!.state == .ended) {
-                
-                dragDelegate?.dragEnded(view: self, location: location)
-            }
-            
         }
     }
     
