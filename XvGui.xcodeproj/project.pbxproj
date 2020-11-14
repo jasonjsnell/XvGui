@@ -24,6 +24,7 @@
 		BB016158251599B90044483C /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016157251599B90044483C /* Screen.swift */; };
 		BB01615A251599C60044483C /* Interactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016159251599C60044483C /* Interactions.swift */; };
 		BB01615C251599CF0044483C /* Anim.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01615B251599CF0044483C /* Anim.swift */; };
+		BB05C6D6256014C100463517 /* XvSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB05C6D5256014C100463517 /* XvSwitch.swift */; };
 		BB1E248824AD40A200DEBD9E /* XvUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1E248724AD409C00DEBD9E /* XvUtils.framework */; };
 		BB2E0365251969C40095F7F3 /* XvButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2E0364251969C40095F7F3 /* XvButton.swift */; };
 		BB2E0370251983DD0095F7F3 /* XvVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2E036F251983DD0095F7F3 /* XvVIew.swift */; };
@@ -63,6 +64,7 @@
 		BB016157251599B90044483C /* Screen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		BB016159251599C60044483C /* Interactions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactions.swift; sourceTree = "<group>"; };
 		BB01615B251599CF0044483C /* Anim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anim.swift; sourceTree = "<group>"; };
+		BB05C6D5256014C100463517 /* XvSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvSwitch.swift; path = Components/XvSwitch.swift; sourceTree = "<group>"; };
 		BB1E248224AD409C00DEBD9E /* XvUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XvUtils.xcodeproj; path = ../XvUtils/XvUtils.xcodeproj; sourceTree = "<group>"; };
 		BB2E0364251969C40095F7F3 /* XvButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvButton.swift; path = Components/XvButton.swift; sourceTree = "<group>"; };
 		BB2E036F251983DD0095F7F3 /* XvVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvVIew.swift; path = Drawing/XvVIew.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				BB79A51D252E70D9003CAAE4 /* XvSlider.swift */,
 				BBF7A1CA252F6CAA006D32FC /* XvCustomSlider.swift */,
 				BBD4FBE9253127B00010B93E /* XvStepper.swift */,
+				BB05C6D5256014C100463517 /* XvSwitch.swift */,
 				BB01614D2515992A0044483C /* MeterBar.swift */,
 			);
 			name = Components;
@@ -332,6 +335,7 @@
 				BB016154251599850044483C /* XvColor.swift in Sources */,
 				BB79A517252E4718003CAAE4 /* XvSegmentedControl.swift in Sources */,
 				BB01615A251599C60044483C /* Interactions.swift in Sources */,
+				BB05C6D6256014C100463517 /* XvSwitch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
