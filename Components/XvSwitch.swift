@@ -6,13 +6,28 @@
 //  Copyright © 2020 Jason Snell. All rights reserved.
 //
 
+/*
+ 
+ let switch:XvSwitch = XvSwitch(
+     target: self,
+     action: #selector(toggled),
+     defaultValue: tempOnBool
+ )
+ 
+ @objc func toggled(sender:UISwitch!){
+     
+    print(sender.value)
+ }
+ 
+ */
+
 import UIKit
 
 public class XvSwitch:XvView {
     
     fileprivate let _switch:UISwitch
-    fileprivate let UI_SWITCH_W:CGFloat = 51
-    fileprivate let UI_SWITCH_H:CGFloat = 31
+    fileprivate let UISWITCH_W:CGFloat = 51
+    fileprivate let UISWITCH_H:CGFloat = 31
     
     public init(
     
@@ -28,13 +43,13 @@ public class XvSwitch:XvView {
     ){
         
         _switch = UISwitch()
-        _switch.frame = CGRect(x:x, y:y, width: UI_SWITCH_W, height: UI_SWITCH_H)
+        _switch.frame = CGRect(x:x, y:y, width: UISWITCH_W, height: UISWITCH_H)
         _switch.isOn = defaultValue
         _switch.setOn(defaultValue, animated: false)
         
         _switch.addTarget(target, action: action, for: .valueChanged)
         
-        super.init(x: x, y: y, width: UI_SWITCH_W, height: UI_SWITCH_H)
+        super.init(x: x, y: y, width: UISWITCH_W, height: UISWITCH_H)
         _view = _switch as UISwitch
         
     }

@@ -215,7 +215,7 @@ open class XvView:Equatable {
             target: self,
             action: #selector(viewDragged)
         )
-        drag!.minimumPressDuration = 0.25
+        drag!.minimumPressDuration = 0.2
         
         view.addGestureRecognizer(drag!)
         view.isUserInteractionEnabled = true
@@ -227,8 +227,6 @@ open class XvView:Equatable {
         if (drag != nil) {
             
             //get global loc of frame
-            print("viewdragged")
-            
             if let globalPoint:CGPoint = view.superview?.convert(
                 view.frame.origin, to: nil
             ) {
@@ -265,7 +263,6 @@ open class XvView:Equatable {
         }
     }
     
-   
     
     //MARK: Hover
     

@@ -6,11 +6,34 @@
 //  Copyright © 2020 Jason Snell. All rights reserved.
 //
 
+/*
+ 
+ let stepper:XvStepper = XvStepper(
+     target: self,
+     action: #selector(stepperValueChanged(sender:)),
+     minValue: minValue,
+     maxValue: maxValue,
+     startingValue: startingValue,
+     stepValue: stepValue,
+     wraps: wraps
+ )
+ 
+ @objc func stepperValueChanged(sender:UIStepper!){
+     
+    print(sender.value)
+
+ }
+ 
+ */
+
 import UIKit
 
 public class XvStepper:XvView {
     
     fileprivate let _stepper:UIStepper
+    fileprivate let UISTEPPER_W:CGFloat = 94
+    fileprivate let UISTEPPER_H:CGFloat = 27
+    
     public init(
     
         //functionality
@@ -24,14 +47,12 @@ public class XvStepper:XvView {
         
         //location
         x:CGFloat = 0,
-        y:CGFloat = 0,
-        width:CGFloat = 100,
-        height:CGFloat = 28
+        y:CGFloat = 0
         
     ){
         
         _stepper = UIStepper()
-        _stepper.frame = CGRect(x:x, y:y, width: width, height: height)
+        _stepper.frame = CGRect(x:x, y:y, width: UISTEPPER_W, height: UISTEPPER_H)
         _stepper.maximumValue = maxValue
         _stepper.minimumValue = minValue
         _stepper.stepValue = stepValue
@@ -44,7 +65,7 @@ public class XvStepper:XvView {
         
         _stepper.addTarget(target, action: action, for: .valueChanged)
         
-        super.init(x: x, y: y, width: width, height: height)
+        super.init(x: x, y: y, width: UISTEPPER_W, height: UISTEPPER_H)
         _view = _stepper as UIStepper
         
     }
