@@ -22,7 +22,7 @@
 		BB016152251599540044483C /* Textures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016150251599540044483C /* Textures.swift */; };
 		BB016154251599850044483C /* XvColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016153251599850044483C /* XvColor.swift */; };
 		BB016158251599B90044483C /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016157251599B90044483C /* Screen.swift */; };
-		BB01615A251599C60044483C /* Interactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016159251599C60044483C /* Interactions.swift */; };
+		BB01615A251599C60044483C /* XvInteractions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016159251599C60044483C /* XvInteractions.swift */; };
 		BB01615C251599CF0044483C /* Anim.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01615B251599CF0044483C /* Anim.swift */; };
 		BB05C6D6256014C100463517 /* XvSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB05C6D5256014C100463517 /* XvSwitch.swift */; };
 		BB1E248824AD40A200DEBD9E /* XvUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1E248724AD409C00DEBD9E /* XvUtils.framework */; };
@@ -62,7 +62,7 @@
 		BB016150251599540044483C /* Textures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Textures.swift; path = Textures/Textures.swift; sourceTree = "<group>"; };
 		BB016153251599850044483C /* XvColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XvColor.swift; sourceTree = "<group>"; };
 		BB016157251599B90044483C /* Screen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
-		BB016159251599C60044483C /* Interactions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactions.swift; sourceTree = "<group>"; };
+		BB016159251599C60044483C /* XvInteractions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XvInteractions.swift; sourceTree = "<group>"; };
 		BB01615B251599CF0044483C /* Anim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anim.swift; sourceTree = "<group>"; };
 		BB05C6D5256014C100463517 /* XvSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvSwitch.swift; path = Components/XvSwitch.swift; sourceTree = "<group>"; };
 		BB1E248224AD409C00DEBD9E /* XvUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XvUtils.xcodeproj; path = ../XvUtils/XvUtils.xcodeproj; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 				BB1E248224AD409C00DEBD9E /* XvUtils.xcodeproj */,
 				BB016157251599B90044483C /* Screen.swift */,
 				BB016153251599850044483C /* XvColor.swift */,
-				BB016159251599C60044483C /* Interactions.swift */,
+				BB016159251599C60044483C /* XvInteractions.swift */,
 				BB01615B251599CF0044483C /* Anim.swift */,
 				BB01611D251595E30044483C /* Drawing */,
 				BB01614C251599130044483C /* Textures */,
@@ -334,7 +334,7 @@
 				BB016146251598B20044483C /* XvShape.swift in Sources */,
 				BB016154251599850044483C /* XvColor.swift in Sources */,
 				BB79A517252E4718003CAAE4 /* XvSegmentedControl.swift in Sources */,
-				BB01615A251599C60044483C /* Interactions.swift in Sources */,
+				BB01615A251599C60044483C /* XvInteractions.swift in Sources */,
 				BB05C6D6256014C100463517 /* XvSwitch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
