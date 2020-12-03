@@ -41,7 +41,6 @@ open class XvView:Equatable {
         return lhs.timestampID == rhs.timestampID
     }
     
-    
     internal var _view:UIView
     internal var _shapeLayer:CAShapeLayer
     fileprivate let timestampID:Double
@@ -115,6 +114,7 @@ open class XvView:Equatable {
             _view.alpha = newAlpha
         }
     }
+
     
     //climb up ladder of views to get the root view
     public var rootView:UIView {

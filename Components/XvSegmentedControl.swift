@@ -66,7 +66,6 @@ public class XvSegmentedControl:XvView {
         // make first segment selected
         _segmentedControl.selectedSegmentIndex = 0
                 
-    
         // add target and action
         _segmentedControl.addTarget(target, action: action, for: .valueChanged)
                 

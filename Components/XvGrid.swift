@@ -51,7 +51,7 @@ public class XvGrid:XvCompositeShape {
         
         //add to view
         for item in items {
-            add(view: item)
+            add(item)
         }
         
         //add to array
@@ -69,7 +69,7 @@ public class XvGrid:XvCompositeShape {
             items.remove(at: index)
             
             //remove from view
-            remove(view: item)
+            remove(item)
             
             //render
             refreshSize()
@@ -82,7 +82,7 @@ public class XvGrid:XvCompositeShape {
         items.insert(item, at: at)
         
         //add to view
-        add(view: item)
+        add(item)
         
         //render
         refreshSize()
