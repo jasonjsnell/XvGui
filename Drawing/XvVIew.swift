@@ -74,6 +74,7 @@ open class XvView:Equatable {
     //MARK: Frame
     public var view:UIView {
         get { return _view }
+        set { _view = newValue }
     }
 
     public var x:CGFloat {
@@ -157,9 +158,9 @@ open class XvView:Equatable {
     
 
     //MARK: Debug
-    public func showBoundingBox(){
+    public func showBoundingBox(color:UIColor = UIColor.red){
         
-        _view.layer.borderColor = UIColor.red.cgColor
+        _view.layer.borderColor = color.cgColor
         _view.layer.borderWidth = 2.0
     }
     

@@ -286,11 +286,9 @@ public class XvText:XvView{
         
     }
     
-    public override func showBoundingBox(){
+    public override func showBoundingBox(color:UIColor = UIColor.red){
         
-        super.showBoundingBox()
-        
-        _label?.layer.borderColor = UIColor.blue.cgColor
+        _label?.layer.borderColor = color.cgColor
         _label?.layer.borderWidth = 2.0
         
         //_background?.borderColor = UIColor.green
