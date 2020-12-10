@@ -17,6 +17,9 @@ public class XvGrid:XvCompositeShape {
     public static let ALIGN_BOTTOM :String = "alignBottom"
     
     public var items:[XvView] = []
+    
+    fileprivate var maxWidth:CGFloat
+    
     fileprivate let cellWidth:CGFloat
     fileprivate let cellHeight:CGFloat
     fileprivate let cellAlignHorizontal:String
@@ -25,8 +28,7 @@ public class XvGrid:XvCompositeShape {
     public init(
         x:CGFloat = 0,
         y:CGFloat = 0,
-        width:CGFloat = 0,
-        height:CGFloat = 0,
+        maxWidth:CGFloat,
         items:[XvView],
         cellWidth:CGFloat,
         cellHeight:CGFloat,
@@ -35,16 +37,15 @@ public class XvGrid:XvCompositeShape {
         horizontal:Bool = true
     ){
         
+        self.maxWidth = maxWidth
         self.cellWidth = cellWidth
         self.cellHeight = cellHeight
         self.cellAlignHorizontal = cellAlignHorizontal
         self.cellAlignVertical = cellAlignVertical
         
-        super.init(x: x, y: y, width: width, height: height)
-        
+        super.init(x: x, y: y, width: 0, height: 0)
         
         add(items: items)
-        
     }
     
     public func add(items:[XvView]) {
@@ -96,17 +97,24 @@ public class XvGrid:XvCompositeShape {
         return nil
     }
     
+    public func refreshSize(withNewMaxWidth:CGFloat) {
+        self.maxWidth = withNewMaxWidth
+        refreshSize()
+    }
+    
     public override func refreshSize() {
         
         super.refreshSize()
         
         var buildX:CGFloat = 0
+        var largestX:CGFloat = 0
         var buildY:CGFloat = 0
         var gridHeight:CGFloat = 0
         
         for item in items {
             
-            if ((buildX + cellWidth) > width) {
+            if ((buildX + cellWidth) > maxWidth) {
+                largestX = maxWidth
                 buildX = 0
                 buildY += cellHeight
                 if (buildY > gridHeight) { gridHeight = buildY }
@@ -140,17 +148,13 @@ public class XvGrid:XvCompositeShape {
             item.y = buildY + yOffset
             
             buildX += cellWidth
-            
-            
-            
-            
-                        
-        
+            if (buildX > largestX) { largestX = buildX }
         }
         
         gridHeight += cellHeight
         
-        //make sure height of grid view fits the items as they fill in, left to right, row after row
+        //make sure width and height of grid view fits the items as they fill in, left to right, row after row
+        self.width = largestX
         self.height = gridHeight
         
     }

@@ -69,6 +69,7 @@ open class XvView:Equatable {
         //system colors (like .systemBackground) don't work on CAShapeLayers, so the background color will be set direcly on the UIView
         _shapeLayer.fillColor = UIColor.clear.cgColor
         _view.layer.addSublayer(_shapeLayer)
+        
     }
 
     //MARK: Frame
@@ -114,6 +115,11 @@ open class XvView:Equatable {
             if (newAlpha > 1.0) { newAlpha = 1.0 } else if (newAlpha < 0.0) { newAlpha = 0.0 }
             _view.alpha = newAlpha
         }
+    }
+    
+    public var visible:Bool {
+        get { return !view.isHidden }
+        set { view.isHidden = !newValue }
     }
 
     

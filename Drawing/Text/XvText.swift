@@ -146,7 +146,13 @@ public class XvText:XvView{
     }
     
     override public var width:CGFloat {
-        get { return super.width }
+        get {
+            if (_background != nil) {
+                return _background!.width
+            } else {
+                return _label!.frame.size.width
+            }
+        }
         set {
             super.width = newValue
             if (_background != nil) { _background!.width = newValue }
@@ -155,7 +161,13 @@ public class XvText:XvView{
     }
     
     override public var height:CGFloat {
-        get { return super.height }
+        get {
+            if (_background != nil) {
+                return _background!.height
+            } else {
+                return _label!.frame.size.height
+            }
+        }
         set {
             super.height = newValue
             if (_background != nil) { _background!.height = newValue }
@@ -163,13 +175,7 @@ public class XvText:XvView{
         }
     }
     
-    public var textWidth:CGFloat {
-        get { return _label!.frame.size.width }
-    }
-    
-    public var textHeight:CGFloat {
-        get { return _label!.frame.size.height }
-    }
+  
     
     public var backgroundWidth:CGFloat {
         get {
