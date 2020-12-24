@@ -21,6 +21,7 @@ public class XvSlider:XvView {
         minValue:Float = 0,
         maxValue:Float = 1.0,
         startingValue:Float = 0,
+        isContinous:Bool = true,
         
         //location
         x:CGFloat = 0,
@@ -50,6 +51,7 @@ public class XvSlider:XvView {
         
         //functionality
         _slider.addTarget(target, action: action, for: .valueChanged)
+        _slider.isContinuous = isContinous
         
         super.init(x: x, y: y, width: length, height: 1)
         _view = _slider as UISlider
