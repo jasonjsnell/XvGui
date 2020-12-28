@@ -69,7 +69,7 @@ open class XvView:Equatable {
         //system colors (like .systemBackground) don't work on CAShapeLayers, so the background color will be set direcly on the UIView
         _shapeLayer.fillColor = UIColor.clear.cgColor
         _view.layer.addSublayer(_shapeLayer)
-
+        showBoundingBox()
     }
 
     //MARK: Frame

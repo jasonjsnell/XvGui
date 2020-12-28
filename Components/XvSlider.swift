@@ -13,6 +13,8 @@ import UIKit
 public class XvSlider:XvView {
     
     fileprivate let _slider:UISlider
+    fileprivate let DEFAULT_HEIGHT:CGFloat = 25
+    
     public init(
         
         //functionality
@@ -37,7 +39,7 @@ public class XvSlider:XvView {
     ){
         
         //frame
-        _slider = UISlider(frame:CGRect(x: x, y: y, width: length, height: 1))
+        _slider = UISlider(frame:CGRect(x: x, y: y, width: length, height: DEFAULT_HEIGHT))
         
         //color
         if (barColor != nil) {
@@ -53,7 +55,7 @@ public class XvSlider:XvView {
         _slider.addTarget(target, action: action, for: .valueChanged)
         _slider.isContinuous = isContinous
         
-        super.init(x: x, y: y, width: length, height: 1)
+        super.init(x: x, y: y, width: length, height: DEFAULT_HEIGHT)
         _view = _slider as UISlider
         
         UIView.animate(withDuration: 0.8) {
