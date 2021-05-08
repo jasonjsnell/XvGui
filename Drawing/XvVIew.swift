@@ -9,15 +9,15 @@
 import UIKit
 
 //interaction delegates
-public protocol XvViewTapDelegate:class {
+public protocol XvViewTapDelegate:AnyObject {
     func tapEnded(view:XvView)
 }
-public protocol XvViewDragDelegate:class {
+public protocol XvViewDragDelegate:AnyObject {
     func dragBegan(view:XvView, location:XvViewLocation)
     func dragging(view:XvView, location:XvViewLocation)
     func dragEnded(view:XvView, location:XvViewLocation)
 }
-public protocol XvViewHoverDelegate:class {
+public protocol XvViewHoverDelegate:AnyObject {
     func hoverBegan(view:XvView)
     func hoverEnded(view:XvView)
 }
@@ -137,7 +137,7 @@ open class XvView:Equatable {
     }
     
     //call when changing size of XvShape and need gradients and sublayers to resize too
-    public func refreshSize(){
+    open func refreshSize(){
         print("is XvView refreshSize ever called?")
         _view.layer.frame.size.width = _view.frame.size.width
         _view.layer.frame.size.height = _view.frame.size.height
