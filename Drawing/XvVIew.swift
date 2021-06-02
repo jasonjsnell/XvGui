@@ -138,7 +138,7 @@ open class XvView:Equatable {
     
     //call when changing size of XvShape and need gradients and sublayers to resize too
     open func refreshSize(){
-        print("is XvView refreshSize ever called?")
+        
         _view.layer.frame.size.width = _view.frame.size.width
         _view.layer.frame.size.height = _view.frame.size.height
         
