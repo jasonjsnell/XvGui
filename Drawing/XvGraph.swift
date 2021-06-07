@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import XvUtils
 
 public class XvGraph:UIView {
+    
+    public static let scaleLinear:String = "scaleLinear"
+    public static let scaleLogarithmic:String = "scaleLogarithmic"
     
     public static let alignmentLeftRight:String = "alignmentLeftRight"
     public static let alignmentRightLeft:String = "alignmentRightLeft"
@@ -16,6 +20,16 @@ public class XvGraph:UIView {
     public static let alignmentOutsideIn:String = "alignmentOutsideIn"
     
     //MARK: - Accessors
+    fileprivate var _scale:String = XvGraph.scaleLinear
+    public var scale:String {
+        get {
+            return _scale
+        }
+        set {
+            _scale = newValue
+        }
+    }
+    
     fileprivate var _amplifier:CGFloat
     public var amplifier:CGFloat {
         get { return _amplifier }
@@ -63,6 +77,9 @@ public class XvGraph:UIView {
     fileprivate var _screenH:CGFloat
     fileprivate var _screenW:CGFloat
     
+    //logarithmic calculations
+    fileprivate let logScale:LogarithmicScaling
+
     //MARK: - Init -
     override init(frame: CGRect) {
        
@@ -76,9 +93,14 @@ public class XvGraph:UIView {
         //capture vars locally for faster rendering
         _screenW = Screen.width
         _screenH = Screen.height
-        
+   
         //default alignment is left to right
         _alignment = XvGraph.alignmentLeftRight
+        
+        logScale = LogarithmicScaling(
+            outputRange: Int(Screen.width),
+            smoothing: true
+        )
         
         super.init(frame:
             CGRect(x: 0, y: 0, width: _screenW, height: _screenH)
@@ -107,6 +129,8 @@ public class XvGraph:UIView {
         _screenH = h
         self.frame =  CGRect(x: 0, y: 0, width: w, height: h)
         _zeroBaseline = _screenH * _zeroBaselinePct
+        logScale.outputRange = Int(_screenW)
+     
     }
     
     //MARK: Refresh Data
@@ -115,8 +139,21 @@ public class XvGraph:UIView {
     //just send in one dataset
     public func refresh(withYDataSet:[CGFloat]) {
         
+        //clear set
         _yDataSets = []
-        _yDataSets.append(withYDataSet)
+        
+        if (scale == XvGraph.scaleLinear) {
+            
+            //single, linerar set
+            _yDataSets.append(withYDataSet)
+            
+        } else {
+           
+           
+            //init a blank array that will replace the set array
+            _yDataSets.append(logScale.scaleCG(dataSet: withYDataSet))
+        }
+        
         refresh()
     }
     
@@ -155,7 +192,7 @@ public class XvGraph:UIView {
         //loop through each
         for i in 0..<_yDataSets.count {
             
-            //grab set
+            //grab set and line
             let set:[CGFloat] = _yDataSets[i]
             let line:XvLine = _lines[i]
             
