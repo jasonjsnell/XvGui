@@ -42,7 +42,7 @@ public class XvGraph:UIView {
         get { return _zeroBaseline }
         set {
             _zeroBaseline = newValue
-            _zeroBaselinePct = _zeroBaseline / Screen.height
+            _zeroBaselinePct = _zeroBaseline / _graphH
         }
     }
     
@@ -74,14 +74,16 @@ public class XvGraph:UIView {
         get { return _lines }
     }
     
-    fileprivate var _screenH:CGFloat
-    fileprivate var _screenW:CGFloat
+    //dimensions
+    
+    fileprivate var _graphH:CGFloat
+    fileprivate var _graphW:CGFloat
     
     //logarithmic calculations
     fileprivate let logScale:LogarithmicScaling
 
     //MARK: - Init -
-    override init(frame: CGRect) {
+    override init(frame: CGRect = CGRect(x: 0, y: 0, width: Screen.width, height: Screen.height)) {
        
         //default baseline is middle of frame
         _zeroBaseline = Screen.height / 2
@@ -91,8 +93,8 @@ public class XvGraph:UIView {
         _amplifier = 1.0
         
         //capture vars locally for faster rendering
-        _screenW = Screen.width
-        _screenH = Screen.height
+        _graphW = Screen.width
+        _graphH = Screen.height
    
         //default alignment is left to right
         _alignment = XvGraph.alignmentLeftRight
@@ -102,9 +104,7 @@ public class XvGraph:UIView {
             smoothing: true
         )
         
-        super.init(frame:
-            CGRect(x: 0, y: 0, width: _screenW, height: _screenH)
-        )
+        super.init(frame: frame)
         
         //make bg color clear
         self.backgroundColor = UIColor.clear
@@ -122,14 +122,14 @@ public class XvGraph:UIView {
     }
     
     //MARK: Refresh Size
-    public func refreshSize(w:CGFloat = Screen.width, h:CGFloat = Screen.height){
+    public func refreshSize(x:CGFloat = 0, y:CGFloat = 0, w:CGFloat = Screen.width, h:CGFloat = Screen.height){
         
         //update frame
-        _screenW = w
-        _screenH = h
-        self.frame =  CGRect(x: 0, y: 0, width: w, height: h)
-        _zeroBaseline = _screenH * _zeroBaselinePct
-        logScale.outputRange = Int(_screenW)
+        _graphW = w
+        _graphH = h
+        self.frame =  CGRect(x: x, y: y, width: w, height: h)
+        _zeroBaseline = _graphH * _zeroBaselinePct
+        logScale.outputRange = Int(_graphW)
      
     }
     
@@ -225,7 +225,7 @@ public class XvGraph:UIView {
         
         //data points will animate left to right
         //meaning data array will be applied right to left
-        let xInc:CGFloat = _screenW / CGFloat(yDataSet.count-1)
+        let xInc:CGFloat = _graphW / CGFloat(yDataSet.count-1)
         let reversedData:[CGFloat] = yDataSet.reversed()
         _render(line: line, yDataSet: reversedData, xInc: xInc)
     }
@@ -234,7 +234,7 @@ public class XvGraph:UIView {
     
         //data points will animate from right to left
         //meaning data array will be applied left to right
-        let xInc:CGFloat = _screenW / CGFloat(yDataSet.count-1)
+        let xInc:CGFloat = _graphW / CGFloat(yDataSet.count-1)
         _render(line: line, yDataSet: yDataSet, xInc: xInc)
     }
     
@@ -242,7 +242,7 @@ public class XvGraph:UIView {
         
         //data points animate from the outside to center
         
-        let xInc:CGFloat = (_screenW / 2) / CGFloat(yDataSet.count-1)
+        let xInc:CGFloat = (_graphW / 2) / CGFloat(yDataSet.count-1)
         
         let reversedData:[CGFloat] = yDataSet.reversed()
         let doubledData:[CGFloat] = reversedData + yDataSet
@@ -255,7 +255,7 @@ public class XvGraph:UIView {
         
         //data points animate from the inside out
         
-        let xInc:CGFloat = (_screenW / 2) / CGFloat(yDataSet.count-1)
+        let xInc:CGFloat = (_graphW / 2) / CGFloat(yDataSet.count-1)
         
         let reversedData:[CGFloat] = yDataSet.reversed()
         let doubledData:[CGFloat] = yDataSet + reversedData
