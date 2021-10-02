@@ -222,7 +222,7 @@ open class XvView:Equatable {
             target: self,
             action: #selector(viewDragged)
         )
-        drag!.minimumPressDuration = 0.15
+        drag!.minimumPressDuration = 0.125
         
         view.addGestureRecognizer(drag!)
         view.isUserInteractionEnabled = true
