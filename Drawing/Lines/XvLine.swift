@@ -35,8 +35,6 @@ public class XvLine:XvView {
             lineCapStyle: lineCapStyle
         )
         
-        
-        
         //super init a blank frame up to XvView
         //it will get updated during update points
         super.init(x: 0, y: 0, width: 0, height: 0)
@@ -58,7 +56,9 @@ public class XvLine:XvView {
     public var bezierPath:UIBezierPath {
         get { _lineView.bezierPath }
     }
-
+    public var points:[CGPoint] {
+        get { _lineView.points }
+    }
 }
 
 internal class XvLineView:UIView {
@@ -69,6 +69,7 @@ internal class XvLineView:UIView {
     fileprivate var _curved:Bool = false
     
     internal let bezierPath:UIBezierPath = UIBezierPath()
+    internal var points:[CGPoint] = []
     
     //MARK: Init
     internal init(
@@ -119,6 +120,8 @@ internal class XvLineView:UIView {
     }
     
     internal func update(points:[CGPoint]) {
+        
+        self.points = points
         
         if (points.count > 1) {
             
