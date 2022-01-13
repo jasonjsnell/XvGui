@@ -20,6 +20,18 @@ public class Screen  {
     public static let SETTINGS_BUTTON_SIZE:CGFloat = 50
     
     //MARK: DIMENSIONS
+    
+    public static var y:CGFloat {
+        get {
+            #if targetEnvironment(macCatalyst)
+            
+            return 28 // title bar in Mac Catalyst
+            
+            #else
+            return 0 //iOS
+            #endif
+        }
+    }
     public static var width:CGFloat {
         get {
             #if targetEnvironment(macCatalyst)
@@ -39,13 +51,14 @@ public class Screen  {
         }
     }
     
+
     public static var height:CGFloat {
         get {
             #if targetEnvironment(macCatalyst)
             
-            if let firstWindow = UIApplication.shared.windows.first {
+            if let firstWindow:UIWindow = UIApplication.shared.windows.first {
                 if let rootViewControoler:UIViewController = firstWindow.rootViewController {
-                    return rootViewControoler.view.frame.size.height
+                    return rootViewControoler.view.frame.size.height - Screen.y
                 }
             }
             
