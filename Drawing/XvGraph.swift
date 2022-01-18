@@ -45,6 +45,11 @@ public class XvGraph:UIView {
             _zeroBaselinePct = _zeroBaseline / _graphH
         }
     }
+    fileprivate var _bottomFill:Bool
+    public var bottomFill:Bool {
+        get { return _bottomFill }
+        set { _bottomFill = newValue }
+    }
     
     fileprivate var _alignment:String
     public var alignment:String {
@@ -88,6 +93,9 @@ public class XvGraph:UIView {
         //default baseline is middle of frame
         _zeroBaseline = Screen.height / 2
         _zeroBaselinePct = _zeroBaseline / Screen.height
+        
+        //default is the bottom is not filled, no fill color
+        _bottomFill = false
         
         //amplifier - how much to magnify values in points array
         _amplifier = 1.0
@@ -148,7 +156,6 @@ public class XvGraph:UIView {
             _yDataSets.append(withYDataSet)
             
         } else {
-           
            
             //init a blank array that will replace the set array
             _yDataSets.append(logScale.scaleCG(dataSet: withYDataSet))
@@ -270,7 +277,7 @@ public class XvGraph:UIView {
         yDataSet:[CGFloat],
         xInc:CGFloat
     ) {
-        
+       
         var xLoc:CGFloat = 0
         var points:[CGPoint] = []
         
@@ -289,6 +296,19 @@ public class XvGraph:UIView {
             //move x for the next render
             //xInc can be negative for right to left movement
             xLoc += xInc
+        }
+        
+        //have the fill extend to the bottom of the screen
+        //the lines require a fill in this mode
+        if (_bottomFill) {
+            let lineEnd:CGPoint = CGPoint(x: xLoc, y: getY(from: yDataSet.last!))
+            let lowerRightCorner:CGPoint = CGPoint(x: xLoc, y: Screen.height)
+            let lowerLeftCorner:CGPoint = CGPoint(x: 0, y: Screen.height)
+            let lineStart:CGPoint = CGPoint(x: 0, y: getY(from: yDataSet[0]))
+            points.append(lineEnd)
+            points.append(lowerRightCorner)
+            points.append(lowerLeftCorner)
+            points.append(lineStart)
         }
         
         //pass completed array into the XvLine for rendering
