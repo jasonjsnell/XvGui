@@ -204,7 +204,7 @@ public class XvGraph:UIView {
             let line:XvLine = _lines[i]
             
             //no data is in data point set yet
-            if (set.count == 0) { return }
+            if (set.count < 2) { return }
             
             //render based on alignment
             
@@ -261,14 +261,11 @@ public class XvGraph:UIView {
     fileprivate func renderInsideOut(line:XvLine, yDataSet:[CGFloat]) {
         
         //data points animate from the inside out
-        
         let xInc:CGFloat = (_graphW / 2) / CGFloat(yDataSet.count-1)
-        
         let reversedData:[CGFloat] = yDataSet.reversed()
         let doubledData:[CGFloat] = yDataSet + reversedData
         
         _render(line: line, yDataSet: doubledData, xInc: xInc)
-        
     }
     
     //main rendering code
