@@ -196,6 +196,9 @@ open class XvShape:XvView {
         ).cgPath
         
         //rounded rect is always used because it can be a rect or circle
+        
+        //update gradient too
+        _gradient.frame = _view.bounds
     }
     
 }
