@@ -175,7 +175,7 @@ public class XvGraph:UIView {
             
         } else {
             
-            print("XvGraph: Quantity", withYDataSets.count, "is more than the quanity", _lines.count, "of lines")
+            print("XvGraph: Quantity", withYDataSets.count, "is more than the quantity", _lines.count, "of lines")
             _yDataSets = []
         }
         
