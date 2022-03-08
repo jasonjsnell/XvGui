@@ -65,13 +65,8 @@ public class XvGraph:UIView {
         addSubview(line.view)
     }
     public func add(lines:[XvLine]) {
-        
         _lines += lines
-        
-        for line in lines {
-            addSubview(line.view)
-        }
-        
+        for line in lines { addSubview(line.view) }
     }
     
     //getter
@@ -175,7 +170,7 @@ public class XvGraph:UIView {
             
         } else {
             
-            print("XvGraph: Quantity", withYDataSets.count, "is more than the quantity", _lines.count, "of lines")
+            print("XvGraph: withYDataSets quantity", withYDataSets.count, "is more than the quantity", _lines.count, "of lines")
             _yDataSets = []
         }
         
