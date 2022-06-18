@@ -10,6 +10,7 @@ import UIKit
 
 //example of action: #selector(segmentedValueChanged(sender:))
 
+@available(iOS 13.0, *)
 public class XvSegmentedControl:XvView {
     
     fileprivate let _segmentedControl:UISegmentedControl

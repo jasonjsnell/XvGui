@@ -8,6 +8,7 @@
 
 import UIKit
 
+@available(iOS 13.0, *)
 public class XvButton:XvView {
     
     fileprivate let _button:UIButton

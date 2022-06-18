@@ -32,7 +32,7 @@ public class XvText:XvView{
         
         //text properties
         text:String = "",
-        color:UIColor = .label,
+        color:UIColor = .white,
         fontName:String = Text.HELV_NEUE,
         size:CGFloat = UIFont.systemFontSize,
         alignment:NSTextAlignment = .left,

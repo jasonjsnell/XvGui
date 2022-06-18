@@ -273,43 +273,88 @@ open class XvView:Equatable {
     
     //MARK: Hover
     
-    fileprivate var hover:UIHoverGestureRecognizer?
-    fileprivate var hoverDelegate:XvViewHoverDelegate?
-    
+  
     public func addHover(delegate:XvViewHoverDelegate){
         
-        //if existing, clear it
-        if (hover != nil) {
-            view.removeGestureRecognizer(hover!)
-            hover = nil
-            hoverDelegate = nil
+        //pass down to sub class
+        if #available(iOS 13.0, *) {
+            XvViewHover.sharedInstance.set(view: self)
+            XvViewHover.sharedInstance.addHover(delegate: delegate)
+        } else {
+            // Fallback on earlier versions
+            print("XvView: addHover: This is only available of iOS 13 or later")
         }
-        
-        //re-create it
-        hoverDelegate = delegate
-        hover = UIHoverGestureRecognizer(
-            target: self,
-            action: #selector(viewHovered)
-        )
-        
-        view.addGestureRecognizer(hover!)
-        view.isUserInteractionEnabled = true
     }
     
     @objc func viewHovered(){
         
-        if (hover != nil) {
-         
-            if (hover!.state == .began) {
-                
-                hoverDelegate?.hoverBegan(view: self)
-            
-            } else if (hover!.state == .ended) {
-                
-                hoverDelegate?.hoverEnded(view: self)
-            }
+        //pass down to sub class
+        if #available(iOS 13.0, *) {
+            XvViewHover.sharedInstance.viewHovered()
+        } else {
+            // Fallback on earlier versions
+            print("XvView: viewHovered: This is only available of iOS 13 or later")
         }
     }
     
 
+}
+
+@available(iOS 13.0, *)
+class XvViewHover {
+    
+    fileprivate var _hover:UIHoverGestureRecognizer?
+    fileprivate var _view:XvView?
+    fileprivate var _delegate:XvViewHoverDelegate?
+    
+    //singleton code
+    public static let sharedInstance = XvViewHover()
+    fileprivate init() {}
+    
+    func set(view:XvView) {
+        self._view = view
+    }
+    
+    func addHover(delegate:XvViewHoverDelegate){
+        
+        if (_view != nil) {
+            
+            //if existing, clear it
+            if (_hover != nil) {
+                _view!.view.removeGestureRecognizer(_hover!)
+                _hover = nil
+                _delegate = nil
+            }
+            
+            //re-create it
+            _delegate = delegate
+            _hover = UIHoverGestureRecognizer(
+                target: self,
+                action: #selector(viewHovered)
+            )
+            
+            _view!.view.addGestureRecognizer(_hover!)
+            _view!.view.isUserInteractionEnabled = true
+        } else {
+            print("XvViewHover: addHover: Error: XvView or XvViewHoverDelegate is nil")
+        }
+    }
+    
+    @objc func viewHovered(){
+        
+        if (_view != nil && _delegate != nil && _hover != nil) {
+        
+            if (_hover!.state == .began) {
+                
+                _delegate?.hoverBegan(view: _view!)
+            
+            } else if (_hover!.state == .ended) {
+                
+                _delegate?.hoverEnded(view: _view!)
+            }
+        } else {
+            print("XvViewHover: viewHovered: Error: XvView or XvViewHoverDelegate or UIHoverGestureRecognizer is nil")
+        }
+    }
+    
 }

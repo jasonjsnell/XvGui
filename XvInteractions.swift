@@ -64,6 +64,7 @@ public class XvInteractions {
          }
      } */
     
+    @available(iOS 13.0, *)
     public static func addHover(view:UIView, target:Any?, action:Selector?) {
         
         let hover:UIHoverGestureRecognizer = UIHoverGestureRecognizer(
