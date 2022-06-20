@@ -485,7 +485,7 @@
 				INFOPLIST_FILE = Private/Basics/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.5;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -517,7 +517,7 @@
 				INFOPLIST_FILE = Private/Basics/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.5;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
