@@ -20,6 +20,13 @@ public class XvText:XvView{
     fileprivate var _background:XvRect?
     fileprivate var _padding:CGFloat
     
+    public var background:XvView {
+        if (_background != nil) {
+            return _background!
+        } else {
+            return self
+        }
+    }
     
     //init with standard values
     public init(
