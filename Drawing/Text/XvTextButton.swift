@@ -36,14 +36,15 @@ public class XvTextButton:XvText{
         padding:CGFloat = 0) {
         
             //make the hit zone
-            hitZone = XvRect(x: 0, y: 0, width: width, height: height, bgColor: .red)
+            hitZone = XvRect(x: 0, y: 0, width: width, height: height, bgColor: .clear)
             
             //pass up to XvText
             //note: alignment is always .left
             super.init(x: x, y: y, width: width, height: height, text: text, color: color, fontName: fontName, size: size, alignment: .left, backgroundColor: backgroundColor, backgroundWidth: backgroundWidth, borderColor: borderColor, borderWidth: borderWidth, cornerRadius: cornerRadius, padding: padding)
             
-            //show for testing, comment out for deploy
-            //hitZone.alpha = 0.5
+            //show for testing
+            //hitZone.bgColor = .red
+            //hitZone.alpha = 0.5 //<-- make 0.5 for testing
           
             //add on top of the XvText graphics
             view.addSubview(hitZone.view)
