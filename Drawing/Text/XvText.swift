@@ -212,6 +212,13 @@ public class XvText:XvView{
         }
     }
     
+    public var padding:CGFloat {
+        get { return _padding }
+    }
+    public var label:UILabel? {
+        get { return _label }
+    }
+    
     //MARK: Resizing
     public override func refreshSize(){
         

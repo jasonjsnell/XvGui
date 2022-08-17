@@ -26,6 +26,7 @@
 		BB01615C251599CF0044483C /* Anim.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01615B251599CF0044483C /* Anim.swift */; };
 		BB05C6D6256014C100463517 /* XvSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB05C6D5256014C100463517 /* XvSwitch.swift */; };
 		BB1E248824AD40A200DEBD9E /* XvUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1E248724AD409C00DEBD9E /* XvUtils.framework */; };
+		BB2ACC5028AD67DC00664BAF /* XvTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2ACC4F28AD67DC00664BAF /* XvTextButton.swift */; };
 		BB2E0365251969C40095F7F3 /* XvButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2E0364251969C40095F7F3 /* XvButton.swift */; };
 		BB2E0370251983DD0095F7F3 /* XvVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2E036F251983DD0095F7F3 /* XvVIew.swift */; };
 		BB4D529A255877AC00FEFF08 /* XvGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4D5299255877AC00FEFF08 /* XvGrid.swift */; };
@@ -66,6 +67,7 @@
 		BB01615B251599CF0044483C /* Anim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anim.swift; sourceTree = "<group>"; };
 		BB05C6D5256014C100463517 /* XvSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvSwitch.swift; path = Components/XvSwitch.swift; sourceTree = "<group>"; };
 		BB1E248224AD409C00DEBD9E /* XvUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XvUtils.xcodeproj; path = ../XvUtils/XvUtils.xcodeproj; sourceTree = "<group>"; };
+		BB2ACC4F28AD67DC00664BAF /* XvTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvTextButton.swift; path = Drawing/Text/XvTextButton.swift; sourceTree = "<group>"; };
 		BB2E0364251969C40095F7F3 /* XvButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvButton.swift; path = Components/XvButton.swift; sourceTree = "<group>"; };
 		BB2E036F251983DD0095F7F3 /* XvVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvVIew.swift; path = Drawing/XvVIew.swift; sourceTree = "<group>"; };
 		BB4D5299255877AC00FEFF08 /* XvGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvGrid.swift; path = Components/XvGrid.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				BB016139251598430044483C /* XvText.swift */,
+				BB2ACC4F28AD67DC00664BAF /* XvTextButton.swift */,
 				BB0161372515981E0044483C /* XvInputText.swift */,
 				BB01613F251598A70044483C /* Text.swift */,
 			);
@@ -315,6 +318,7 @@
 				BB01615C251599CF0044483C /* Anim.swift in Sources */,
 				BB016140251598A70044483C /* Text.swift in Sources */,
 				BBD4FBEA253127B00010B93E /* XvStepper.swift in Sources */,
+				BB2ACC5028AD67DC00664BAF /* XvTextButton.swift in Sources */,
 				BB2E0365251969C40095F7F3 /* XvButton.swift in Sources */,
 				BB016148251598B20044483C /* XvImage.swift in Sources */,
 				BB0161382515981E0044483C /* XvInputText.swift in Sources */,
