@@ -70,6 +70,7 @@ open class XvView:Equatable {
         _shapeLayer.fillColor = UIColor.clear.cgColor
         _view.layer.addSublayer(_shapeLayer)
         
+        //showBoundingBox()
     }
 
     //MARK: Frame
