@@ -152,6 +152,15 @@ public class XvText:XvView{
         get { return _alignment }
     }
     
+    public var color:UIColor {
+        get {
+            return _label?.textColor ?? .white
+        }
+        set {
+            _label?.textColor = newValue
+        }
+    }
+    
     override public var width:CGFloat {
         get {
             if (_background != nil) {
