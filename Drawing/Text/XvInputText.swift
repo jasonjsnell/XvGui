@@ -130,4 +130,9 @@ public class XvInputText:XvView {
         set { _textField.text = newValue }
     }
     
+    public func restrictToNumbersOnly(){
+        _textField.keyboardType = .asciiCapableNumberPad
+    }
+   
+    
 }
