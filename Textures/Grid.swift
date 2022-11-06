@@ -6,7 +6,11 @@
 //  Copyright © 2019 Jason Snell. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
+#else
+import AppKit
+#endif
 
 public class Grid {
     
