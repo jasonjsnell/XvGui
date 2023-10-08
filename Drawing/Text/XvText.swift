@@ -81,6 +81,9 @@ public class XvText:XvView{
                 height: _label!.intrinsicContentSize.height
             )
             
+            _label!.lineBreakMode = .byWordWrapping
+            _label!.numberOfLines = 0
+            
             //then construct background
             var _backgroundColor:UIColor = .clear
             var _borderColor:UIColor = .clear
