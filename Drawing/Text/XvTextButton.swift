@@ -6,7 +6,11 @@
 //  Copyright © 2022 Jason Snell. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
+#else
+import AppKit
+#endif
 
 public class XvTextButton:XvText{
     

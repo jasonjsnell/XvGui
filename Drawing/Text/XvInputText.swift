@@ -6,7 +6,11 @@
 //  Copyright © 2020 Jason Snell. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
+#else
+import AppKit
+#endif
 
 //MARK: - Input Text -
 
@@ -129,5 +133,10 @@ public class XvInputText:XvView {
         get { return _textField.text }
         set { _textField.text = newValue }
     }
+    
+    public func restrictToNumbersOnly(){
+        _textField.keyboardType = .asciiCapableNumberPad
+    }
+   
     
 }

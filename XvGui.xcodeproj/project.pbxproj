@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,8 +24,9 @@
 		BB016158251599B90044483C /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016157251599B90044483C /* Screen.swift */; };
 		BB01615A251599C60044483C /* XvInteractions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016159251599C60044483C /* XvInteractions.swift */; };
 		BB01615C251599CF0044483C /* Anim.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01615B251599CF0044483C /* Anim.swift */; };
+		BB05A408290D83BC000442DC /* XvUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1E248724AD409C00DEBD9E /* XvUtils.framework */; };
+		BB05A409290D83BC000442DC /* XvUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BB1E248724AD409C00DEBD9E /* XvUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BB05C6D6256014C100463517 /* XvSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB05C6D5256014C100463517 /* XvSwitch.swift */; };
-		BB1E248824AD40A200DEBD9E /* XvUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1E248724AD409C00DEBD9E /* XvUtils.framework */; };
 		BB2ACC5028AD67DC00664BAF /* XvTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2ACC4F28AD67DC00664BAF /* XvTextButton.swift */; };
 		BB2E0365251969C40095F7F3 /* XvButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2E0364251969C40095F7F3 /* XvButton.swift */; };
 		BB2E0370251983DD0095F7F3 /* XvVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2E036F251983DD0095F7F3 /* XvVIew.swift */; };
@@ -46,6 +47,20 @@
 			remoteInfo = XvUtils;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BB05A40A290D83BC000442DC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BB05A409290D83BC000442DC /* XvUtils.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BB0161372515981E0044483C /* XvInputText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvInputText.swift; path = Drawing/Text/XvInputText.swift; sourceTree = "<group>"; };
@@ -86,7 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB1E248824AD40A200DEBD9E /* XvUtils.framework in Frameworks */,
+				BB05A408290D83BC000442DC /* XvUtils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +254,7 @@
 				BB6291D521B56A2E00AAD524 /* Sources */,
 				BB6291D621B56A2E00AAD524 /* Frameworks */,
 				BB6291D721B56A2E00AAD524 /* Resources */,
+				BB05A40A290D83BC000442DC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -265,7 +281,7 @@
 				};
 			};
 			buildConfigurationList = BB6291D321B56A2E00AAD524 /* Build configuration list for PBXProject "XvGui" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -478,6 +494,7 @@
 		BB6291E221B56A2E00AAD524 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -498,6 +515,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonjsnell.XvGui;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -510,6 +528,7 @@
 		BB6291E321B56A2E00AAD524 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -530,6 +549,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonjsnell.XvGui;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;

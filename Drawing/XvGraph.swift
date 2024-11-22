@@ -6,7 +6,14 @@
 //  Copyright © 2020 Jason Snell. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
+#else
+import AppKit
+#endif
+
+
+
 import XvUtils
 
 public class XvGraph:UIView {

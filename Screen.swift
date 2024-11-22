@@ -7,7 +7,11 @@
 //
 
 import Foundation
+#if os(iOS)
 import UIKit
+#else
+import AppKit
+#endif
 import XvUtils
 
 public class Screen  {
@@ -25,7 +29,8 @@ public class Screen  {
         get {
             #if targetEnvironment(macCatalyst)
             
-            return 28 // title bar in Mac Catalyst
+            return 0
+            //return 28 // title bar in Mac Catalyst
             
             #else
             return 0 //iOS
