@@ -205,7 +205,7 @@ public class XvText:XvView{
             if (_background != nil) {
                 return _background!.width
             } else {
-                return 0
+                return 100
             }
         }
         set {
@@ -219,7 +219,7 @@ public class XvText:XvView{
             if (_background != nil) {
                 return _background!.height
             } else {
-                return 0
+                return 40
             }
         }
         set {
