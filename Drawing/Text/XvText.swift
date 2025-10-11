@@ -15,7 +15,7 @@ import AppKit
 //MARK: - XvText -
 public class XvText:XvView{
     
-    fileprivate var _label:UILabel?
+    fileprivate let _label: UILabel
     fileprivate var _fontName:String
     fileprivate var _color:UIColor
     fileprivate var _size:CGFloat
@@ -62,95 +62,92 @@ public class XvText:XvView{
         self._alignment = alignment
         self._padding = padding
         
-        super.init(x: x, y: y, width: width, height: height)
-        
-        //turn "" into a space so the height is full
+        // Prepare label before calling super.init to satisfy Swift init rules
         var _text:String = text
         if (_text == "") { _text = " " }
         
-        //try to create a label with incoming vars
-        if let _lbl:UILabel = Text.createLabel(text: _text, fontName: fontName, color: color, size: size, alignment: alignment) {
-            
-            //if successful, save it
-            _label = _lbl
-            
-            _label!.frame = CGRect(
-                x: _padding,
-                y: _padding,
-                width: _label!.intrinsicContentSize.width,
-                height: _label!.intrinsicContentSize.height
-            )
-            
-            _label!.lineBreakMode = .byWordWrapping
-            _label!.numberOfLines = 0
-            
-            //then construct background
-            var _backgroundColor:UIColor = .clear
-            var _borderColor:UIColor = .clear
-            
-            if (backgroundColor != nil) {
-                _backgroundColor = backgroundColor!
-            }
-            if (borderColor != nil) {
-                _borderColor = borderColor!
-            }
-            
-            //if background or border color are valid, make the bg
-            if (backgroundColor != nil || borderColor != nil) {
-                
-                var w:CGFloat
-                
-                if (backgroundWidth != nil) {
-                    
-                    //set by incoming value
-                    w = backgroundWidth!
-                } else {
-                    
-                    //or created dynamically to be text width + padding
-                    w = Text.getWidth(of: _label!) + (_padding * 2)
-                }
-                
-                //bg height = text height + padding
-                let h:CGFloat = Text.getHeight(of: _label!) + (_padding * 2)
-                
-                _background = XvRect(
-                    x: 0,
-                    y: 0,
-                    width: w,
-                    height: h,
-                    bgColor: _backgroundColor,
-                    borderColor: _borderColor,
-                    borderWidth: borderWidth,
-                    cornerRadius: cornerRadius
-                )
-                
-                //resize main view to fit bg
-                _view.frame = CGRect(x: x, y: y, width: w, height: h)
-                _view.addSubview(_background!.view)
-                
-            } else {
-                
-                //else no background, size view to fit text
-                _view.frame = CGRect(x: x, y: y, width: _label!.frame.width, height: _label!.frame.height)
-                
-            }
-            
-            //add text on top of background
-            _view.addSubview(_label!)
-           
-            //refresh size now that every is added
-            refreshSize()
-            
-        } else {
-            print("XvText: Error: Unable to init label")
+        let createdLabel = Text.createLabel(text: _text, fontName: fontName, color: color, size: size, alignment: alignment)
+        let preInitLabel = createdLabel ?? UILabel()
+        
+        // ensure label has the expected properties even on fallback
+        preInitLabel.text = _text
+        preInitLabel.textColor = color
+        #if os(iOS)
+        preInitLabel.font = UIFont(name: fontName, size: size) ?? UIFont.systemFont(ofSize: size)
+        #else
+        preInitLabel.font = NSFont(name: fontName, size: size) ?? NSFont.systemFont(ofSize: size)
+        #endif
+        preInitLabel.textAlignment = alignment
+        
+        _label = preInitLabel
+        
+        super.init(x: x, y: y, width: width, height: height)
+        
+        _label.frame = CGRect(
+            x: _padding,
+            y: _padding,
+            width: _label.intrinsicContentSize.width,
+            height: _label.intrinsicContentSize.height
+        )
+        
+        _label.lineBreakMode = .byWordWrapping
+        _label.numberOfLines = 0
+        
+        // then construct background
+        var _backgroundColor:UIColor = .clear
+        var _borderColor:UIColor = .clear
+        
+        if (backgroundColor != nil) {
+            _backgroundColor = backgroundColor!
         }
+        if (borderColor != nil) {
+            _borderColor = borderColor!
+        }
+        
+        // if background or border color are valid, make the bg
+        if (backgroundColor != nil || borderColor != nil) {
+            var w:CGFloat
+            if (backgroundWidth != nil) {
+                // set by incoming value
+                w = backgroundWidth!
+            } else {
+                // or created dynamically to be text width + padding
+                w = Text.getWidth(of: _label) + (_padding * 2)
+            }
+            // bg height = text height + padding
+            let h:CGFloat = Text.getHeight(of: _label) + (_padding * 2)
+
+            _background = XvRect(
+                x: 0,
+                y: 0,
+                width: w,
+                height: h,
+                bgColor: _backgroundColor,
+                borderColor: _borderColor,
+                borderWidth: borderWidth,
+                cornerRadius: cornerRadius
+            )
+
+            // resize main view to fit bg
+            _view.frame = CGRect(x: x, y: y, width: w, height: h)
+            _view.addSubview(_background!.view)
+        } else {
+            // else no background, size view to fit text
+            _view.frame = CGRect(x: x, y: y, width: _label.frame.width, height: _label.frame.height)
+        }
+        
+        // add text on top of background
+        _view.addSubview(_label)
+        
+        // refresh size now that everything is added
+        refreshSize()
         
     }
     
-    public var text:String? {
-        get { return _label!.text }
+    public var text: String? {
+        get { return _label.text }
         set {
-            _label?.text = newValue
+            _label.text = newValue
             refreshSize()
         }
     }
@@ -161,21 +158,15 @@ public class XvText:XvView{
     
     public var color:UIColor {
         get {
-            return _label?.textColor ?? .white
+            return _label.textColor
         }
         set {
-            _label?.textColor = newValue
+            _label.textColor = newValue
         }
     }
     
-    override public var width:CGFloat {
-        get {
-            if (_background != nil) {
-                return _background!.width
-            } else {
-                return _label!.frame.size.width
-            }
-        }
+    override public var width: CGFloat {
+        get { return (_background != nil) ? _background!.width : _label.frame.size.width }
         set {
             super.width = newValue
             if (_background != nil) { _background!.width = newValue }
@@ -183,14 +174,8 @@ public class XvText:XvView{
         }
     }
     
-    override public var height:CGFloat {
-        get {
-            if (_background != nil) {
-                return _background!.height
-            } else {
-                return _label!.frame.size.height
-            }
-        }
+    override public var height: CGFloat {
+        get { return (_background != nil) ? _background!.height : _label.frame.size.height }
         set {
             super.height = newValue
             if (_background != nil) { _background!.height = newValue }
@@ -200,12 +185,12 @@ public class XvText:XvView{
     
   
     
-    public var backgroundWidth:CGFloat {
+    public var backgroundWidth: CGFloat {
         get {
             if (_background != nil) {
                 return _background!.width
             } else {
-                return 100
+                return _label.intrinsicContentSize.width + (_padding * 2)
             }
         }
         set {
@@ -214,12 +199,12 @@ public class XvText:XvView{
         }
     }
     
-    public var backgroundHeight:CGFloat {
+    public var backgroundHeight: CGFloat {
         get {
             if (_background != nil) {
                 return _background!.height
             } else {
-                return 40
+                return _label.intrinsicContentSize.height + (_padding * 2)
             }
         }
         set {
@@ -231,15 +216,15 @@ public class XvText:XvView{
     public var padding:CGFloat {
         get { return _padding }
     }
-    public var label:UILabel? {
+    public var label: UILabel {
         get { return _label }
     }
     
     //MARK: Resizing
     public override func refreshSize(){
         
-        let textContentW:CGFloat = _label!.intrinsicContentSize.width
-        let textContentH:CGFloat = _label!.intrinsicContentSize.height
+        let textContentW: CGFloat = _label.intrinsicContentSize.width
+        let textContentH: CGFloat = _label.intrinsicContentSize.height
         
         let textPaddedContentW:CGFloat = textContentW + (_padding * 2)
         let textPaddedContentH:CGFloat = textContentH + (_padding * 2)
@@ -261,7 +246,7 @@ public class XvText:XvView{
             
             //adjust the label to fit the text
             //keep the xy as default
-            _label!.frame = CGRect(
+            _label.frame = CGRect(
                 x: _padding,
                 y: _padding,
                 width: textContentW,
@@ -281,7 +266,7 @@ public class XvText:XvView{
             
             //adjust the label to fit the text
             //change x so label is centered at the XvText.x location
-            _label!.frame = CGRect(
+            _label.frame = CGRect(
                 x: -(textContentW / 2),
                 y: _padding,
                 width: textContentW,
@@ -301,7 +286,7 @@ public class XvText:XvView{
             
         } else if (_alignment == .right) {
             
-            _label!.frame = CGRect(
+            _label.frame = CGRect(
                 x: -(textContentW + _padding),
                 y: _padding,
                 width: textContentW,
@@ -324,8 +309,8 @@ public class XvText:XvView{
     
     public override func showBoundingBox(color:UIColor = UIColor.red){
         
-        _label?.layer.borderColor = color.cgColor
-        _label?.layer.borderWidth = 2.0
+        _label.layer.borderColor = color.cgColor
+        _label.layer.borderWidth = 2.0
         
         //_background?.borderColor = UIColor.green
         //_background?.borderWidth = 2.0

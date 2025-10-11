@@ -62,8 +62,8 @@ public class XvTextButton:XvText{
     //MARK: Resizing
     public override func refreshSize(){
         
-        let textContentW:CGFloat = label!.intrinsicContentSize.width
-        let textContentH:CGFloat = label!.intrinsicContentSize.height
+        let textContentW:CGFloat = label.intrinsicContentSize.width
+        let textContentH:CGFloat = label.intrinsicContentSize.height
         
         let textPaddedContentW:CGFloat = textContentW + (padding * 2)
         let textPaddedContentH:CGFloat = textContentH + (padding * 2)
@@ -79,7 +79,7 @@ public class XvTextButton:XvText{
         
         //adjust the label to fit the text
         //keep the xy as default
-        label!.frame = CGRect(
+        label.frame = CGRect(
             x: (width/2)-(textContentW/2),
             y: padding,
             width: textContentW,
