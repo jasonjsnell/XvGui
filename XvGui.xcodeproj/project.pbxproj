@@ -25,7 +25,6 @@
 		BB01615A251599C60044483C /* XvInteractions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB016159251599C60044483C /* XvInteractions.swift */; };
 		BB01615C251599CF0044483C /* Anim.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB01615B251599CF0044483C /* Anim.swift */; };
 		BB05A408290D83BC000442DC /* XvUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1E248724AD409C00DEBD9E /* XvUtils.framework */; };
-		BB05A409290D83BC000442DC /* XvUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BB1E248724AD409C00DEBD9E /* XvUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BB05C6D6256014C100463517 /* XvSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB05C6D5256014C100463517 /* XvSwitch.swift */; };
 		BB2ACC5028AD67DC00664BAF /* XvTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2ACC4F28AD67DC00664BAF /* XvTextButton.swift */; };
 		BB2E0365251969C40095F7F3 /* XvButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2E0364251969C40095F7F3 /* XvButton.swift */; };
@@ -47,20 +46,6 @@
 			remoteInfo = XvUtils;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		BB05A40A290D83BC000442DC /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				BB05A409290D83BC000442DC /* XvUtils.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BB0161372515981E0044483C /* XvInputText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XvInputText.swift; path = Drawing/Text/XvInputText.swift; sourceTree = "<group>"; };
@@ -254,7 +239,6 @@
 				BB6291D521B56A2E00AAD524 /* Sources */,
 				BB6291D621B56A2E00AAD524 /* Frameworks */,
 				BB6291D721B56A2E00AAD524 /* Resources */,
-				BB05A40A290D83BC000442DC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
